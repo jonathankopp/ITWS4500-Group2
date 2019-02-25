@@ -1,173 +1,144 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Project Title</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta charset="UTF-8">
+  <title>Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-  <link rel = "stylesheet" type = "text/css" href = "style.css" /> 
-  <style>    
-    /* Set black background color, white text and some padding */
-    footer {
-      background-color: #555;
-      color: white;
-      padding: 15px;
-    }
-  </style>
+  <link rel="stylesheet" href="resource/css/index.css">
 </head>
+
 <body>
 
 <nav class="navbar navbar-inverse">
   <div class="container-fluid">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>                        
       </button>
-      <a class="navbar-brand" href="#">Logo</a>
+      <a class="navbar-brand" href="#">Munify</a>
     </div>
     <div class="collapse navbar-collapse" id="myNavbar">
-      <!-- <ul class="nav navbar-nav">
-        <li class="active"><a href="#">Home</a></li>
-        <li><a href="#">Messages</a></li>
-      </ul> -->
-      <form class="navbar-form navbar-right" role="search">
-        <div class="form-group input-group">
-          <input type="text" class="form-control" placeholder="Search..">
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button">
-              <span class="glyphicon glyphicon-search"></span>
-            </button>
-          </span>        
-        </div>
-      </form>
       <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> My Profile</a></li>
+        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
       </ul>
     </div>
   </div>
 </nav>
-  
-<div class="container text-center">    
-  <div class="row">
-    <div class="col-sm-3 well">
-      <div class="well">
-        <p><a href="#">My Profile</a></p>
-        <img src="bird.jpg" class="img-circle" height="65" width="65" alt="Avatar">
-      </div>
-      <div class="well">
-        <p><a href="#">Interests</a></p>
-        <p>
-          <span class="label label-default">News</span>
-          <span class="label label-primary">W3Schools</span>
-          <span class="label label-success">Labels</span>
-          <span class="label label-info">Football</span>
-          <span class="label label-warning">Gaming</span>
-          <span class="label label-danger">Friends</span>
-        </p>
-      </div>
-      <div class="alert alert-success fade in">
-        <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
-        <p><strong>Ey!</strong></p>
-        People are looking at your profile. Find out who.
-      </div>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
-      <p><a href="#">Link</a></p>
+
+<div class="container-fluid">
+  <div class="col-sm-3">
+    <div class="col-sm-12 text-center">
+      <img src="resource/image/userphoto.jpg" style="width: 80%;">
     </div>
-    <div class="col-sm-7">
-    
-      <div class="row">
-        <div class="col-sm-12">
-          <div class="panel panel-default text-left">
-            <div class="panel-body">
-              <p contenteditable="true">Status: Feeling Blue</p>
-              <button type="button" class="btn btn-default btn-sm">
-                <span class="glyphicon glyphicon-thumbs-up"></span> Like
-              </button>     
-            </div>
-          </div>
-        </div>
-      </div>
-      
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>John</p>
-           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Bo</p>
-           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Jane</p>
-           <img src="bandmember.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <div class="col-sm-3">
-          <div class="well">
-           <p>Anja</p>
-           <img src="bird.jpg" class="img-circle" height="55" width="55" alt="Avatar">
-          </div>
-        </div>
-        <div class="col-sm-9">
-          <div class="well">
-            <p>Just Forgot that I had to mention something about someone to someone about how I forgot something, but now I forgot it. Ahh, forget it! Or wait. I remember.... no I don't.</p>
-          </div>
-        </div>
-      </div>     
+    <div class="col-sm-12">
+      <br>
     </div>
-    <div class="col-sm-2 well">
-      <div class="thumbnail">
-        <p>Upcoming Events:</p>
-        <img src="paris.jpg" alt="Paris" width="400" height="300">
-        <p><strong>Paris</strong></p>
-        <p>Fri. 27 November 2015</p>
-        <button class="btn btn-primary">Info</button>
-      </div>      
-      <div class="well">
-        <p>ADS</p>
+    <div class=" col-sm-12 container ">
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center ">Nickname:</div>
+        <div class="col-sm-8 text-center">Alice</div>
       </div>
-      <div class="well">
-        <p>ADS</p>
+      <div class="col-sm-12 UserInfoBg">
+        <br>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center">Hobbies:</div>
+        <div class="col-sm-8 text-center">Listening Music, Taking Tests, Sleeping, Coding</div>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <br>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center">Loved Singers:</div>
+        <div class="col-sm-8 text-center">Alice, John, Ben, Sadney</div>
       </div>
     </div>
   </div>
-</div>
 
-<footer class="container-fluid text-center">
-  <p>Footer Text</p>
-</footer>
+  <div class="col-sm-6">
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice just added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist <br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Yellow_cover_art.JPG" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice added <em>Yellow</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+    <div class="col-sm-12 UserPosts">
+      <div class="col-sm-6">
+        <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      </div>
+      <div class="col-sm-6 text-baseline">
+        <p class="PostText">
+          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+        </p>
+      </div>
+    </div>
+    <div class="col-sm-12"><br></div>
+  </div>
+
+  <div class="col-sm-3">
+    chat room ( later implement )
+  </div>
+
+</div>
 
 </body>
 </html>
