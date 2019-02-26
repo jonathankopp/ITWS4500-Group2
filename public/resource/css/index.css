@@ -6,7 +6,10 @@
 }
 .PostPicture{
     width: 80%;
+    height: 80%;
+    padding-top: 7%;
+    padding-bottom:7%;
 }
 .PostText{
-    padding-top: 30%;
+    padding-top: 40%;
 }
