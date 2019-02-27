@@ -4,31 +4,152 @@
   <meta charset="UTF-8">
   <title>Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
-  <link rel="stylesheet" href="/public/resource/css/index.css">
-
+  <link rel="stylesheet" href="/resource/css/index.css">
+  <style type="text/css">
+        #login, #loggedin {
+          display: none;
+        }
+        .text-overflow {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          width: 500px;
+        }
+  </style>
 </head>
 
 <body>
-
-<nav class="navbar navbar-inverse">
-  <div class="container-fluid">
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-      </button>
-      <a class="navbar-brand" href="#">Munify</a>
-    </div>
-    <div class="collapse navbar-collapse" id="myNavbar">
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
-      </ul>
-    </div>
+  <div id="login">
+    <h1>Welcome to *site*</h1>
+    <a href="/login" class="btn btn-success" id="loginBtn">Log in with Spotify</a>
   </div>
-</nav>
+  <div id="loggedin">
+    <!-- <div id="user-profile"></div> -->
+    <div id="oauth" style="display: none;">
+    </div>
+    <button style="display: none;" class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          </button>
+          <a class="navbar-brand" href="#">Munify</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-<div class="container-fluid">
-  <div class="col-sm-3">
+    <div class="container-fluid">
+      <div class="col-sm-3" id="user-profile">
+      </div>
+
+      <div class="col-sm-6">
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice just added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist <br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Yellow_cover_art.JPG" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Yellow</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+      </div>
+
+      <div class="col-sm-3" id="chatroom">
+        <div class="col-sm-12">
+          <form id="nickname-form">
+            <input id="nickname" autocomplete="off" /><button id="select">Nickname</button>
+          </form>
+          <div class=" row col-sm-12">
+            <p id="greeting" class="text-align-center"></p>
+          </div>
+        </div>
+        <div class="row col-sm-12">
+          <form action="" id="chat-form">
+            <input id="message" autocomplete="off" /><button id="send">Send</button>
+          </form>
+          <ul id="messages"></ul>
+        </div>
+      </div>
+    </div>
+
+  </div>
+  <script id="user-profile-template" type="text/x-handlebars-template">
+    <h1>Logged in as {{display_name}}</h1>
     <div class="col-sm-12 text-center">
-      <img src="public/resource/image/userphoto.jpg" style="width: 80%;">
+      <img src="{{images.0.url}}" style="width: 80%;">
     </div>
     <div class="col-sm-12">
       <br>
@@ -36,129 +157,125 @@
     <div class=" col-sm-12 container ">
       <div class="col-sm-12 UserInfoBg">
         <div class="col-sm-4 text-center ">Nickname:</div>
-        <div class="col-sm-8 text-center">Alice</div>
+        <div class="col-sm-8 text-center">{{display_name}}</div>
       </div>
       <div class="col-sm-12 UserInfoBg">
         <br>
       </div>
       <div class="col-sm-12 UserInfoBg">
-        <div class="col-sm-4 text-center">Hobbies:</div>
-        <div class="col-sm-8 text-center">Listening Music, Taking Tests, Sleeping, Coding</div>
+        <div class="col-sm-4 text-center">Email:</div>
+        <div class="col-sm-8 text-center">{{email}}</div>
       </div>
       <div class="col-sm-12 UserInfoBg">
         <br>
       </div>
       <div class="col-sm-12 UserInfoBg">
-        <div class="col-sm-4 text-center">Loved Singers:</div>
-        <div class="col-sm-8 text-center">Alice, John, Ben, Sadney</div>
+        <div class="col-sm-4 text-center">Country:</div>
+        <div class="col-sm-8 text-center">{{country}}</div>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <br>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center">Spotify:</div>
+        <div class="col-sm-8 text-center"><a href="{{external_urls.spotify}}">Open</a></div>
       </div>
     </div>
-  </div>
+  </script>
 
-  <div class="col-sm-6">
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice just added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist <br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Yellow_cover_art.JPG" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice added <em>Yellow</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-    <div class="col-sm-12 UserPosts">
-      <div class="col-sm-6">
-        <img src="public/resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-      </div>
-      <div class="col-sm-6 text-baseline">
-        <p class="PostText">
-          Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-        </p>
-      </div>
-    </div>
-    <div class="col-sm-12"><br></div>
-  </div>
+  <script id="oauth-template" type="text/x-handlebars-template">
+    <h2>oAuth info</h2>
+    <dl class="dl-horizontal">
+      <dt>Access token</dt><dd class="text-overflow">{{access_token}}</dd>
+      <dt>Refresh token</dt><dd class="text-overflow">{{refresh_token}}</dd>
+    </dl>
+  </script>
 
-  <div class="col-sm-3" id="chatroom">
-    <div class="col-sm-12">
-      <form id="nickname-form">
-        <input id="nickname" autocomplete="off" /><button id="select">Nickname</button>
-      </form>
-      <div class=" row col-sm-12">
-        <p id="greeting" class="text-align-center"></p>
-      </div>
-    </div>
-    <div class="row col-sm-12">
-      <form action="" id="chat-form">
-        <input id="message" autocomplete="off" /><button id="send">Send</button>
-      </form>
-      <ul id="messages"></ul>
-    </div>
-  </div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/2.0.0-alpha.1/handlebars.min.js"></script>
+  <script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+  <script>
+    (function() {
 
-</div>
+      /**
+       * Obtains parameters from the hash of the URL
+       * @return Object
+       */
+      function getHashParams() {
+        var hashParams = {};
+        var e, r = /([^&;=]+)=?([^&;]*)/g,
+            q = window.location.hash.substring(1);
+        while ( e = r.exec(q)) {
+           hashParams[e[1]] = decodeURIComponent(e[2]);
+        }
+        return hashParams;
+      }
+
+      var userProfileSource = document.getElementById('user-profile-template').innerHTML,
+          userProfileTemplate = Handlebars.compile(userProfileSource),
+          userProfilePlaceholder = document.getElementById('user-profile');
+
+      var oauthSource = document.getElementById('oauth-template').innerHTML,
+          oauthTemplate = Handlebars.compile(oauthSource),
+          oauthPlaceholder = document.getElementById('oauth');
+
+      var params = getHashParams();
+
+      var access_token = params.access_token,
+          refresh_token = params.refresh_token,
+          error = params.error;
+
+      if (error) {
+        alert('There was an error during the authentication');
+      } else {
+        if (access_token) {
+          // render oauth info
+          oauthPlaceholder.innerHTML = oauthTemplate({
+            access_token: access_token,
+            refresh_token: refresh_token
+          });
+
+          $.ajax({
+              url: 'https://api.spotify.com/v1/me',
+              headers: {
+                'Authorization': 'Bearer ' + access_token
+              },
+              success: function(response) {
+                userProfilePlaceholder.innerHTML = userProfileTemplate(response);
+
+                $('#login').hide();
+                $('#loggedin').show();
+              }
+          });
+        } else {
+            // render initial screen
+            $('#login').show();
+            $('#loggedin').hide();
+        }
+
+        document.getElementById('obtain-new-token').addEventListener('click', function() {
+          $.ajax({
+            url: '/refresh_token',
+            data: {
+              'refresh_token': refresh_token
+            }
+          }).done(function(data) {
+            access_token = data.access_token;
+            oauthPlaceholder.innerHTML = oauthTemplate({
+              access_token: access_token,
+              refresh_token: refresh_token
+            });
+          });
+        }, false);
+      }
+    })();
+</script>
+  
 
 </body>
 <script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
 <script src="/socket.io/socket.io.js"></script>
-<script>
+<!-- <script>
     // load socket.io-client
     var socket = io();
 
@@ -193,5 +310,5 @@
     socket.on('message', function(msg){
         $('#messages').append($('<li>').text(msg));
     });
-</script>
+</script> -->
 </html>
