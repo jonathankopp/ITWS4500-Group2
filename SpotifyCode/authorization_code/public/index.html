@@ -19,180 +19,166 @@
 </head>
 
 <body>
-
-  <div class="container" style="text-align: center;">
-    <div id="login">
-      <h1>Welcome to *site*</h1>
-      <a href="/login" class="btn btn-success" id="loginBtn">Log in with Spotify</a>
-    </div>
-    <div id="loggedin">
-      <div id="user-profile">
-      </div>
-      <div id="oauth">
-      </div>
-      <button class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
-    </div>
+  <div id="login">
+    <h1>Welcome to *site*</h1>
+    <a href="/login" class="btn btn-success" id="loginBtn">Log in with Spotify</a>
   </div>
+  <div id="loggedin">
+    <!-- <div id="user-profile"></div> -->
+    <div id="oauth" style="display: none;">
+    </div>
+    <button style="display: none;" class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
+    <nav class="navbar navbar-inverse">
+      <div class="container-fluid">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+          </button>
+          <a class="navbar-brand" href="#">Munify</a>
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav navbar-right">
+            <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
 
-  <nav class="navbar navbar-inverse">
     <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-        </button>
-        <a class="navbar-brand" href="#">Munify</a>
+      <div class="col-sm-3" id="user-profile">
       </div>
-      <div class="collapse navbar-collapse" id="myNavbar">
-        <ul class="nav navbar-nav navbar-right">
-          <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
-        </ul>
-      </div>
-    </div>
-  </nav>
 
-  <div class="container-fluid">
-    <div class="col-sm-3">
-      <div class="col-sm-12 text-center">
-        <img src="resource/image/userphoto.jpg" style="width: 80%;">
+      <div class="col-sm-6">
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice just added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist <br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Yellow_cover_art.JPG" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Yellow</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          <div class="col-sm-6">
+            <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+          </div>
+          <div class="col-sm-6 text-baseline">
+            <p class="PostText">
+              Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
+            </p>
+          </div>
+        </div>
+        <div class="col-sm-12"><br></div>
       </div>
-      <div class="col-sm-12">
-        <br>
-      </div>
-      <div class=" col-sm-12 container ">
-        <div class="col-sm-12 UserInfoBg">
-          <div class="col-sm-4 text-center ">Nickname:</div>
-          <div class="col-sm-8 text-center">Alice</div>
-        </div>
-        <div class="col-sm-12 UserInfoBg">
-          <br>
-        </div>
-        <div class="col-sm-12 UserInfoBg">
-          <div class="col-sm-4 text-center">Hobbies:</div>
-          <div class="col-sm-8 text-center">Listening Music, Taking Tests, Sleeping, Coding</div>
-        </div>
-        <div class="col-sm-12 UserInfoBg">
-          <br>
-        </div>
-        <div class="col-sm-12 UserInfoBg">
-          <div class="col-sm-4 text-center">Loved Singers:</div>
-          <div class="col-sm-8 text-center">Alice, John, Ben, Sadney</div>
-        </div>
-      </div>
-    </div>
 
-    <div class="col-sm-6">
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
+      <div class="col-sm-3" id="chatroom">
+        <div class="col-sm-12">
+          <form id="nickname-form">
+            <input id="nickname" autocomplete="off" /><button id="select">Nickname</button>
+          </form>
+          <div class=" row col-sm-12">
+            <p id="greeting" class="text-align-center"></p>
+          </div>
         </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice just added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist <br>
-          </p>
+        <div class="row col-sm-12">
+          <form action="" id="chat-form">
+            <input id="message" autocomplete="off" /><button id="send">Send</button>
+          </form>
+          <ul id="messages"></ul>
         </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Yellow_cover_art.JPG" class="PostPicture">
-        </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice added <em>Yellow</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-        </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-        </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-        </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-        </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-      <div class="col-sm-12 UserPosts">
-        <div class="col-sm-6">
-          <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
-        </div>
-        <div class="col-sm-6 text-baseline">
-          <p class="PostText">
-            Alice added <em>Wake Me Up</em> into her <a href="#">Favorite Song</a> playlist 2 days ago<br>
-          </p>
-        </div>
-      </div>
-      <div class="col-sm-12"><br></div>
-    </div>
-
-    <div class="col-sm-3" id="chatroom">
-      <div class="col-sm-12">
-        <form id="nickname-form">
-          <input id="nickname" autocomplete="off" /><button id="select">Nickname</button>
-        </form>
-        <div class=" row col-sm-12">
-          <p id="greeting" class="text-align-center"></p>
-        </div>
-      </div>
-      <div class="row col-sm-12">
-        <form action="" id="chat-form">
-          <input id="message" autocomplete="off" /><button id="send">Send</button>
-        </form>
-        <ul id="messages"></ul>
       </div>
     </div>
 
   </div>
   <script id="user-profile-template" type="text/x-handlebars-template">
     <h1>Logged in as {{display_name}}</h1>
-    <div class="media">
-      <div class="pull-left">
-        <img class="media-object" width="150" src="{{images.0.url}}" />
+    <div class="col-sm-12 text-center">
+      <img src="{{images.0.url}}" style="width: 80%;">
+    </div>
+    <div class="col-sm-12">
+      <br>
+    </div>
+    <div class=" col-sm-12 container ">
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center ">Nickname:</div>
+        <div class="col-sm-8 text-center">{{display_name}}</div>
       </div>
-      <div class="media-body">
-        <dl class="dl-horizontal">
-          <dt>Display name</dt><dd class="clearfix">{{display_name}}</dd>
-          <dt>Id</dt><dd>{{id}}</dd>
-          <dt>Email</dt><dd>{{email}}</dd>
-          <dt>Spotify URI</dt><dd><a href="{{external_urls.spotify}}">{{external_urls.spotify}}</a></dd>
-          <dt>Link</dt><dd><a href="{{href}}">{{href}}</a></dd>
-          <dt>Profile Image</dt><dd class="clearfix"><a href="{{images.0.url}}">{{images.0.url}}</a></dd>
-          <dt>Country</dt><dd>{{country}}</dd>
-        </dl>
+      <div class="col-sm-12 UserInfoBg">
+        <br>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center">Email:</div>
+        <div class="col-sm-8 text-center">{{email}}</div>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <br>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center">Country:</div>
+        <div class="col-sm-8 text-center">{{country}}</div>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <br>
+      </div>
+      <div class="col-sm-12 UserInfoBg">
+        <div class="col-sm-4 text-center">Spotify:</div>
+        <div class="col-sm-8 text-center"><a href="{{external_urls.spotify}}">Open</a></div>
       </div>
     </div>
   </script>
