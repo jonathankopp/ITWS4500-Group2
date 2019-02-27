@@ -27,3 +27,12 @@ chatroom { font: 14px Helvetica, Arial; position: fixed}
 #messages { position: fixed; top: 15%; width:90%; list-style-type: none; margin: 0; padding-top: 40px; }
 #messages li { padding: 5px 10px; }
 #messages li:nth-child(odd) { background: #eee; }
+#login, #loggedin {
+    display: none;
+}
+.text-overflow {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 500px;
+}

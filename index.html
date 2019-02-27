@@ -5,17 +5,6 @@
   <title>Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/public/resource/css/index.css">
-  <style type="text/css">
-        #login, #loggedin {
-          display: none;
-        }
-        .text-overflow {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          white-space: nowrap;
-          width: 500px;
-        }
-  </style>
 </head>
 
 <body>
@@ -28,7 +17,6 @@
     <div id="oauth" style="display: none;">
     </div>
     <button style="display: none;" class="btn btn-default" id="obtain-new-token">Obtain new token using the refresh token</button>
-    <button onclick="window.location.href='/'">Logout</button>
     <nav class="navbar navbar-inverse">
       <div class="container-fluid">
         <div class="navbar-header">
@@ -39,6 +27,7 @@
         <div class="collapse navbar-collapse" id="myNavbar">
           <ul class="nav navbar-nav navbar-right">
             <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
+            <li><a href="#" onclick="window.location.href='/'"><span class="glyphicon glyphicon-user"></span> Log out</a></li>
           </ul>
         </div>
       </div>
@@ -148,14 +137,14 @@
 
   </div>
   <script id="user-profile-template" type="text/x-handlebars-template">
-    <h1>Logged in as {{display_name}}</h1>
     <div class="col-sm-12 text-center">
+      <h4>Welcome {{display_name}}</h4>
       <img src="{{images.0.url}}" style="width: 80%;">
     </div>
     <div class="col-sm-12">
       <br>
     </div>
-    <div class=" col-sm-12 container ">
+    <div class="col-sm-12 container ">
       <div class="col-sm-12 UserInfoBg">
         <div class="col-sm-4 text-center ">Nickname:</div>
         <div class="col-sm-8 text-center">{{display_name}}</div>
