@@ -36,3 +36,6 @@ chatroom { font: 14px Helvetica, Arial; position: fixed}
     white-space: nowrap;
     width: 500px;
 }
+#login{
+    padding-top: 18%;
+}
