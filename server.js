@@ -133,8 +133,9 @@ app.get('/refresh_token', function(req, res) {
 //Allow static files
 app.use('/public',express.static('public'));
 app.use('/api',express.static('api'));
+app.use('/htdocs',express.static('htdocs'));
 
 //Point to HTML file
-app.get('/', (req, res) => res.sendFile(__dirname + '/index.html'));
+app.get('/', (req, res) => res.sendFile(__dirname + '/htdocs/index.html'));
 
 app.listen(3000);

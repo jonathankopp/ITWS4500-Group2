@@ -5,6 +5,8 @@
   <title>Project</title>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
   <link rel="stylesheet" href="/public/resource/css/index.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script type="text/javascript" src="/htdocs/index.js"></script>
 </head>
 
 <body>
@@ -26,20 +28,20 @@
         </button>
         <a class="navbar-brand" href="#">jukebox</a>
       </div>
-     
+
       <ul class="nav navbar-nav" id="drop">
-      
-          <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Playlists<span class="caret"></span></a>
-            <ul class="dropdown-menu">
-              <li><a href="#">Pop</a></li>
-              <li><a hred="#">~~Jonny's Cool Vibes~~</a></li>
-              <li><a href="#">Rock</a></li>
-              <li><a href="#">Throwback</a></li>
-            </ul>
-          </li>
-          
-        </ul>
-      
+
+        <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#">Playlists<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Pop</a></li>
+            <li><a hred="#">~~Jonny's Cool Vibes~~</a></li>
+            <li><a href="#">Rock</a></li>
+            <li><a href="#">Throwback</a></li>
+          </ul>
+        </li>
+
+      </ul>
+
       <div class="collapse navbar-collapse" id="myNavbar">
         <ul class="nav navbar-nav navbar-right">
           <li><a href="#"><span class="glyphicon glyphicon-user"></span> Account Setting</a></li>
@@ -264,44 +266,6 @@
 
 
 </body>
-<script src="https://cdn.socket.io/socket.io-1.2.0.js"></script>
 <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
-<script src="/socket.io/socket.io.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
-<!-- <script>
-    // load socket.io-client
-    var socket = io();
-
-    // on nick form submit, save nickname
-    $('#nickname-form').submit(function(){
-
-        // save nick in session & greet
-        sessionStorage.setItem("nickname", $('#nickname').val());
-
-        // greet user
-        $("#greeting").html('Welcome' + ' ' + $('#nickname').val() + '!');
-        $('#nick').val('');
-
-        return false;
-    });
-
-    // on chat form submit, send msg to server
-    $('#chat-form').submit(function(){
-
-        // get nickname from session storage
-        var nick = sessionStorage.getItem("nickname");
-
-        // append and emit message
-        $('#messages').append($('<li>').text(nick + ': ' + $('#message').val()));
-        socket.emit('message', nick + ': ' + $('#message').val());
-        $('#message').val('');
-
-        return false;
-    });
-
-    // on msg received, append to list
-    socket.on('message', function(msg){
-        $('#messages').append($('<li>').text(msg));
-    });
-</script> -->
 </html>
