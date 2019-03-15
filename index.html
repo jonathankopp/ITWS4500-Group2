@@ -53,9 +53,11 @@
   <div class="container-fluid">
     <div class="col-sm-4" id="user-profile">
     </div>
+    <div class="col-sm-4" id="user-playlists">
+    </div>
 
     <div class="col-sm-8">
-      <div class="col-sm-12 UserPosts">
+     <!--  <div class="col-sm-12 UserPosts">
         <div class="col-sm-6">
           <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
         </div>
@@ -135,9 +137,36 @@
     </div>
 
 
-  </div>
+  </div> -->
 
 </div>
+<script id="user-playlists-template" type="text/x-handlebars-template">
+  <div class="col-sm-8">
+
+        {{#items}}     
+        <div class="col-sm-12"><br></div>
+        <div class="col-sm-12 UserPosts">
+          
+            <div class="col-sm-6">
+              <img src="{{images.0.url}}" class="PostPicture">
+            </div>
+            <div class="col-sm-6 text-baseline">
+              <p class="PostText">
+                {{owner.display_name}} added song to {{name}}
+              </p>
+            </div>
+          
+        </div>
+        {{/items}}
+      
+      
+
+    
+  </div>
+
+</script>
+
+
 <script id="user-profile-template" type="text/x-handlebars-template">
   <div class="col-sm-12 text-center">
     <h4>Welcome {{display_name}}</h4>
@@ -206,6 +235,11 @@
             userProfileTemplate = Handlebars.compile(userProfileSource),
             userProfilePlaceholder = document.getElementById('user-profile');
 
+    //Creating script template for the playlist
+    var userPlaylistSource = document.getElementById('user-playlists-template').innerHTML,
+            userPlaylistTemplate = Handlebars.compile(userPlaylistSource),
+            userPlaylistPlaceholder = document.getElementById('user-playlists');
+
     var oauthSource = document.getElementById('oauth-template').innerHTML,
             oauthTemplate = Handlebars.compile(oauthSource),
             oauthPlaceholder = document.getElementById('oauth');
@@ -236,8 +270,23 @@
 
             $('#login').hide();
             $('#loggedin').show();
+
           }
+
+
         });
+        $.ajax({
+              url: 'https://api.spotify.com/v1/me/playlists',
+              headers: {
+                'Authorization': 'Bearer ' + access_token
+              },
+              success: function(response) {
+                userPlaylistPlaceholder.innerHTML = userPlaylistTemplate(response);
+
+                $('#login').hide();
+                $('#loggedin').show();
+                }
+            });
       } else {
         // render initial screen
         $('#login').show();

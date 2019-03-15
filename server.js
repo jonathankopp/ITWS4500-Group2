@@ -43,7 +43,7 @@ app.get('/login', function(req, res) {
             state: state
         }));
 });
-
+var uid = "hi";
 app.get('/callback', function(req, res) {
 
     // your application requests refresh and access tokens
@@ -88,6 +88,19 @@ app.get('/callback', function(req, res) {
                 // use the access token to access the Spotify Web API
                 request.get(options, function(error, response, body) {
                     console.log(body);
+                    uid = body.id;
+                    console.log(uid);
+                });
+
+                var options2 = {
+                    url: 'https://api.spotify.com/v1/me/playlists',
+                    headers: { 'Authorization': 'Bearer ' + access_token },
+                    json: true
+                };
+                request.get(options2, function(error, response, body) {
+                    console.log(body);
+                    uid = body.id;
+                    console.log(uid);
                 });
 
                 // we can also pass the token to the browser to make requests from there
@@ -105,6 +118,7 @@ app.get('/callback', function(req, res) {
         });
     }
 });
+
 
 app.get('/refresh_token', function(req, res) {
 
