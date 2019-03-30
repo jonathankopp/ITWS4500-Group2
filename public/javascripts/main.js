@@ -1,4 +1,4 @@
-$(document).ready(function () {
+$(document).ready(function(){
     $("#content").hide();
     var params = getHashParams();
     var access_token = params.access_token,
@@ -14,12 +14,11 @@ $(document).ready(function () {
             success: function (response) {
                 $("#login").hide();
                 $('#content').show();
-                $("#test").html("success");
             }
         });
-    } else {
-
+    }else{
     }
+
 });
 
 
@@ -27,8 +26,46 @@ function getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
         q = window.location.hash.substring(1);
-    while (e = r.exec(q)) {
+    while ( e = r.exec(q)) {
         hashParams[e[1]] = decodeURIComponent(e[2]);
     }
     return hashParams;
 }
+
+
+var app = angular.module('app', []);
+app.controller('comment', function($scope,$http) {
+
+    $scope.name="jon";
+    $scope.text = 'write a comment';
+
+
+
+    $scope.submit = function() {
+
+        var req = {
+            method: 'POST',
+            url: '/comment',
+
+            data: { test: $scope.text }
+        };
+        if ($scope.text) {
+            $http(req).then(function(){
+                console.log("success");
+            }, function(){
+                console.log("fail");
+
+            });
+
+        }
+    }
+
+
+
+});
+
+
+
+
+
+
