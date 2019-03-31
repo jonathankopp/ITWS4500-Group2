@@ -51,15 +51,15 @@
   </nav>
 
   <div class="container-fluid">
-    <div class="col-sm-3" id="user-profile">
+    <div class="col-sm-4" id="user-profile">
     </div>
 
-    <div class="col-sm-4" id="user-playlists">
+    <div class="col-sm-8" id="user-playlists">
 
 
     </div>
 
-    <div class="col-sm-8">
+    <!-- <div class="col-sm-8"> -->
      <!--  <div class="col-sm-12 UserPosts">
         <div class="col-sm-6">
           <img src="resource/image/Avicii_Wake_Me_Up_Official_Single_Cover.png" class="PostPicture">
@@ -266,12 +266,17 @@
     var userPlaylistSource = document.getElementById('user-playlists-template').innerHTML,
             userPlaylistTemplate = Handlebars.compile(userPlaylistSource),
             userPlaylistPlaceholder = document.getElementById('user-playlists');
+            console.log(userPlaylistSource);
+            console.log("------------------------------");
+            console.log(userPlaylistPlaceholder);
+            console.log(userPlaylistTemplate);
 
     var oauthSource = document.getElementById('oauth-template').innerHTML,
             oauthTemplate = Handlebars.compile(oauthSource),
             oauthPlaceholder = document.getElementById('oauth');
 
     var params = getHashParams();
+    console.log(params);
 
     var access_token = params.access_token,
             refresh_token = params.refresh_token,
@@ -309,7 +314,8 @@
               },
               success: function(response) {
                 userPlaylistPlaceholder.innerHTML = userPlaylistTemplate(response);
-
+                console.log(response);
+                //Response holds the json list
                 $('#login').hide();
                 $('#loggedin').show();
                 }

@@ -3,10 +3,12 @@ var request = require('request'); // "Request" library
 var cors = require('cors');
 var querystring = require('querystring');
 var cookieParser = require('cookie-parser');
+const bodyParser = require("body-parser");
 
 var client_id = '1d919a5a30ef4be69dd04141c730e3a9'; // Your client id
 var client_secret = 'a2c8d9a1fe2b44e6a0d6012c2e0a9222'; // Your secret
 var redirect_uri = 'http://localhost:3000/callback'; // Your redirect uri
+
 
 var generateRandomString = function(length) {
     var text = '';
@@ -21,6 +23,8 @@ var generateRandomString = function(length) {
 var stateKey = 'spotify_auth_state';
 
 var app = express();
+app.use(bodyParser.urlencoded({     extended: true }));
+app.use(bodyParser.json());
 
 app.use(express.static(__dirname + '/public'))
     .use(cors())
