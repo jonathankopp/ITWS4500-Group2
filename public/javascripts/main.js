@@ -66,6 +66,7 @@ app.controller('post',function ($scope,$http) {
     $scope.msg="test message";
     $scope.user="Alice";
     $scope.image="";
+    
 
 });
 
