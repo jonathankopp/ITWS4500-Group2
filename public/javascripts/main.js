@@ -74,18 +74,9 @@ $(document).ready(function(){
         return hashParams;
     }
     if (access_token) {
-        $.ajax({
-            url: 'https://api.spotify.com/v1/me',
-            headers: {
-                'Authorization': 'Bearer ' + access_token
-            },
-            success: function (response) {
-                $("#login").hide();
-                $("#content").show();
-            }
-        });
+        $("#login").hide();
+        $("#content").show();
     }
-
 });
 
 
