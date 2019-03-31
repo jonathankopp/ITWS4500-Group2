@@ -1,14 +1,14 @@
 <html>
 
 <head>
-  <title>Express</title>
+  <title>Jukebox</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
 
 </head>
 
-<body>
+<body ng-app="app">
 
 <nav class="navbar navbar-expand-md navbar-light bg-light">
   <a class="navbar-brand" href="#">Jukebox</a>
@@ -22,11 +22,8 @@
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           My Playlist
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="#">1</a>
-          <a class="dropdown-item" href="#">2</a>
-          <div class="dropdown-divider"></div>
-          <a class="dropdown-item" href="#">default</a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown">
+          <a class="dropdown-item" href="#" ng-repeat="opt in options">{{opt}}</a>
         </div>
       </li>
     </ul>
@@ -38,13 +35,14 @@
 
 <div id="login" class="text-center">
   <h1>Welcome to jukebox</h1>
-  <a href="/login" class="btn btn-success" id="loginBtn">Log in with Spotify</a>
+    <a href="/login" class="btn btn-success" id="loginBtn">submit</a>
 </div>
 
-<div class="container-fluid row" id="content">
-  <div class="col-sm-4" id="user-profile">
+<div class="container-fluid row" id="content" >
+
+  <div class="col-sm-4" id="user-profile" ng-controller="user">
     <div class="container">
-      <h3>Welcome </h3>
+      <h3>Welcome {{user}}</h3>
       <img src="" alt="user image">
       <jumbotron>
         <p>Nickname</p>
@@ -53,7 +51,8 @@
       </jumbotron>
     </div>
   </div>
-  <div class="col-sm-5" id="user-playlist">
+
+  <div class="col-sm-5" id="user-playlist" ng-controller="post">
     <div class="container">
       <div>
         <div class="col-sm-12"><br></div>
@@ -63,14 +62,15 @@
           </div>
           <div class="col-sm-6 text-baseline PostText">
             <p class="PostText col-sm-12">
-              user added song to this_playlist
+              {{msg}}
             </p>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <div class="col-sm-3" id="user-comment" ng-app="app" ng-controller="comment">
+
+  <div class="col-sm-3" id="user-comment" ng-controller="comment">
     <div class="container" >
       <h3> comment {{name}}</h3>
       <div>
@@ -98,7 +98,7 @@
 
   <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2019 Copyright:
-    <a href="https://mdbootstrap.com/education/bootstrap/"> ITWS-GROUP2</a>
+    <a href="/"> ITWS-GROUP2</a>
   </div>
   <!-- Copyright -->
 
