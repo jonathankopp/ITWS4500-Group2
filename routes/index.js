@@ -17,6 +17,40 @@ router.post('/comment',function(req,res){
 
 });
 
+router.post('/user',function(req,res){
+  console.log(req);
+  var access_token = req.body.test_access;
+  var url = 'https://api.spotify.com/v1/me';
+ 
+  //Spotify API for user info
+  request(url, { json: true, headers: {'Authorization': 'Bearer ' + access_token} }, (err, response, body) => {
+    if(err) { 
+      return console.log(err)
+    } else {
+      console.log(body);
+      res.send(body);
+    }
+
+  });
+});
+
+router.post('/post',function(req,res){
+  console.log(req);
+  var access_token = req.body.test_access;
+  var url = 'https://api.spotify.com/v1/me/playlists';
+ 
+  //Spotify API for user info
+  request(url, { json: true, headers: {'Authorization': 'Bearer ' + access_token} }, (err, response, body) => {
+    if(err) { 
+      return console.log(err)
+    } else {
+      console.log(body);
+      res.send(body);
+    }
+
+  });
+});
+
 
 var client_id = '1d919a5a30ef4be69dd04141c730e3a9'; // Your client id
 var client_secret = 'a2c8d9a1fe2b44e6a0d6012c2e0a9222'; // Your secret
