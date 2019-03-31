@@ -18,11 +18,37 @@ router.post('/comment',function(req,res){
 });
 
 router.post('/user',function(req,res){
-// req.body.test  is the comment message
   console.log(req);
+  var access_token = req.body.test_access;
+  var url = 'https://api.spotify.com/v1/me';
+ 
+  //Spotify API for user info
+  request(url, { json: true, headers: {'Authorization': 'Bearer ' + access_token} }, (err, response, body) => {
+    if(err) { 
+      return console.log(err)
+    } else {
+      console.log(body);
+      res.send(body);
+    }
 
-  res.send("success user call")
+  });
+});
 
+router.post('/post',function(req,res){
+  console.log(req);
+  var access_token = req.body.test_access;
+  var url = 'https://api.spotify.com/v1/me/playlists';
+ 
+  //Spotify API for user info
+  request(url, { json: true, headers: {'Authorization': 'Bearer ' + access_token} }, (err, response, body) => {
+    if(err) { 
+      return console.log(err)
+    } else {
+      console.log(body);
+      res.send(body);
+    }
+
+  });
 });
 
 

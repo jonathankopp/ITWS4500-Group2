@@ -51,11 +51,7 @@ app.controller('comment', function($scope,$http) {
 
 //for user profile part part
 app.controller('user',function ($scope,$http) {
-    //use http(req) to get information, should at least contain these 3 fields
-    $scope.nickname="";
-    $scope.imgUrl="";
-    $scope.country="cn";
-    $scope.spotiy_link="";
+    //use http(req) to get information
 
     var req = {
         method: 'POST',
@@ -65,11 +61,14 @@ app.controller('user',function ($scope,$http) {
 
     $http(req).then(function(data){
         console.log("success call user");
-        console.log(data);
+        data = data["data"];
+        $scope.nickname=data["display_name"];
+        $scope.imgUrl=data["images"][0]["url"];
+        $scope.country=data["country"];
+        $scope.spotiy_link=data["external_urls"]["spotify"];
 
     }, function(data){
-        console.log("fail");
-
+        console.log("fail call user");
     });
 
 
@@ -78,10 +77,25 @@ app.controller('user',function ($scope,$http) {
 
 //for user_post part
 app.controller('post',function ($scope,$http) {
-    //use http(req) to get information, should at least contain these 3 fields
-    $scope.msg="test message";
-    $scope.user="Alice";
-    $scope.image="";
+    //use http(req) to get information
+    // $scope.msg="test message";
+    // $scope.user="Alice";
+    // $scope.image="";
+
+    var req = {
+        method: 'POST',
+        url: '/post',
+        data: {test_access: access_token}
+    };
+
+    $http(req).then(function(data){
+        console.log("success call post");
+        console.log(data);
+
+        data = data["data"]["items"];
+    }, function(data){
+        console.log("fail call post");
+    });
 
 });
 
