@@ -91,10 +91,10 @@ app.controller('post',function ($scope,$http) {
 
     $http(req).then(function(data){
         console.log("success call post");
-        console.log(data);
 
         //Song/playlist information
         data = data["data"]["items"];
+        console.log(data);
     }, function(data){
         console.log("fail call post");
     });
