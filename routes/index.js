@@ -11,7 +11,8 @@ router.get('/', function(req, res, next) {
 
 //backend comment dev goes here, should return data to frontend
 router.post('/comment',function(req,res){
-// req.body  is the comment message
+// req.body.test  is the comment message
+  console.log(req.body.test);
 
 
 });

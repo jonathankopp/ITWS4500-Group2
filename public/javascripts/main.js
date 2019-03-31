@@ -4,8 +4,9 @@ var app = angular.module('app', []);
 //for comment part
 app.controller('comment', function($scope,$http) {
     //init vars
-    $scope.name="john";
-    $scope.text = 'write a comment';
+    $scope.palylist="Default playlist";
+    $scope.text = '';
+    $scope.placeholder="Leave your thought here";
 
     //when form is submitted, use $http() to send request to node
     $scope.submit = function() {
@@ -30,8 +31,9 @@ app.controller('comment', function($scope,$http) {
 app.controller('user',function ($scope,$http) {
     //use http(req) to get information, should at least contain these 3 fields
     $scope.nickname="honghao";
+    $scope.imgUrl="https://www.petful.com/wp-content/uploads/2014/07/ragdoll-1.jpg";
     $scope.country="cn";
-    $scope.spotiy_link="abc";
+    $scope.spotiy_link="https://www.petful.com/wp-content/uploads/2014/07/ragdoll-1.jpg";
 
 
 });
@@ -60,6 +62,7 @@ app.controller('dropdown',function ($scope,$http) {
 
 $(document).ready(function(){
     $("#content").hide();
+    $("#dropdown").hide();
     var params = getHashParams();
     var access_token = params.access_token,
         refresh_token = params.refresh_token,
@@ -76,6 +79,7 @@ $(document).ready(function(){
     if (access_token) {
         $("#login").hide();
         $("#content").show();
+        $("#dropdown").show();
     }
 });
 

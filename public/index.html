@@ -18,11 +18,11 @@
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown">
+      <li class="nav-item dropdown" id="dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           My Playlist
         </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown">
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
           <a class="dropdown-item" href="#" ng-repeat="opt in options">{{opt}}</a>
         </div>
       </li>
@@ -41,19 +41,21 @@
 <div class="container-fluid row" id="content" >
 
   <div class="col-sm-4" id="user-profile" ng-controller="user">
-    <div class="container">
-      <h3>Welcome {{user}}</h3>
-      <img src="" alt="user image">
-      <jumbotron>
-        <p>Nickname</p>
-        <p>Country</p>
-        <p>Spotify Link</p>
+    <div class="container bg-info">
+      <h4 class="title text-center">Welcome {{nickname}}</h4>
+      <div class="text-center">
+        <img src={{imgUrl}} alt="user image" class="userProfilePicture">
+      </div>
+      <jumbotron class="title text-center">
+        <p>Nickname: {{nickname}}</p>
+        <p>Country: {{country}}</p>
+        <p>Spotify Link: <a href="{{spotiy_link}}">link</a></p>
       </jumbotron>
     </div>
   </div>
 
   <div class="col-sm-5" id="user-playlist" ng-controller="post">
-    <div class="container">
+    <div class="container bg-dark">
       <div>
         <div class="col-sm-12"><br></div>
         <div class="col-sm-12 UserPosts">
@@ -71,21 +73,18 @@
   </div>
 
   <div class="col-sm-3" id="user-comment" ng-controller="comment">
-    <div class="container" >
-      <h3> comment {{name}}</h3>
-      <div>
+    <div class="container bg-light" >
+      <h4 class="title"> Comments on {{palylist}}</h4>
+      <div style="border: solid 2px; padding: 5px">
         <p>i like this song</p>
-        <span style="float: right">- user a</span>
+        <p class="text-right">By user a</p>
       </div>
-      <div>
-        <p>i like this song</p>
-        <span style="float: right">- user a</span>
+      <div style="padding-top: 10px">
+        <form ng-submit="submit()">
+          <input type="textarea" ng-model="text" name="text" placeholder="{{placeholder}}" />
+          <input type="submit" id="submit" value="Submit" />
+        </form>
       </div>
-      <form ng-submit="submit()">
-        Enter comment here
-        <input type="text" ng-model="text" name="text" />
-        <input type="submit" id="submit" value="Submit" />
-      </form>
     </div>
   </div>
 
