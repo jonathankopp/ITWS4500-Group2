@@ -1,6 +1,29 @@
 //frontend development goes here
 var app = angular.module('app', []);
 
+$("#content").hide();
+$("#dropdown").hide();
+var params = getHashParams();
+var access_token = params.access_token,
+    refresh_token = params.refresh_token,
+    error = params.error;
+test=access_token;
+
+function getHashParams() {
+    var hashParams = {};
+    var e, r = /([^&;=]+)=?([^&;]*)/g,
+        q = window.location.hash.substring(1);
+    while ( e = r.exec(q)) {
+        hashParams[e[1]] = decodeURIComponent(e[2]);
+    }
+    return hashParams;
+}
+if (access_token) {
+    $("#login").hide();
+    $("#content").show();
+    $("#dropdown").show();
+}
+
 //for comment part
 app.controller('comment', function($scope,$http) {
     //init vars
@@ -35,7 +58,6 @@ app.controller('user',function ($scope,$http) {
     $scope.country="cn";
     $scope.spotiy_link="https://www.petful.com/wp-content/uploads/2014/07/ragdoll-1.jpg";
 
-
 });
 
 //for user_post part
@@ -57,32 +79,7 @@ app.controller('dropdown',function ($scope,$http) {
 
 
 
-
 // javascript to make sure user has authorized the usage of their spotify information
-
-$(document).ready(function(){
-    $("#content").hide();
-    $("#dropdown").hide();
-    var params = getHashParams();
-    var access_token = params.access_token,
-        refresh_token = params.refresh_token,
-        error = params.error;
-    function getHashParams() {
-        var hashParams = {};
-        var e, r = /([^&;=]+)=?([^&;]*)/g,
-            q = window.location.hash.substring(1);
-        while ( e = r.exec(q)) {
-            hashParams[e[1]] = decodeURIComponent(e[2]);
-        }
-        return hashParams;
-    }
-    if (access_token) {
-        $("#login").hide();
-        $("#content").show();
-        $("#dropdown").show();
-    }
-});
-
 
 
 
