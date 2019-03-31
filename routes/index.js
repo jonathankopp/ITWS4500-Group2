@@ -37,6 +37,7 @@ router.get('/login', function(req, res) {
         show_dialog: true,
         state: state
       }));
+  // console.log(res);
 });
 router.get('/callback', function(req, res) {
   // your application requests refresh and access tokens

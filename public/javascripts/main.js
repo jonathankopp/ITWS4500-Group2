@@ -4,7 +4,7 @@ var app = angular.module('app', []);
 //for comment part
 app.controller('comment', function($scope,$http) {
     //init vars
-    $scope.palylist="Default playlist";
+    $scope.playlist="Default playlist";
     $scope.text = '';
     $scope.placeholder="Leave your thought here";
 
@@ -77,6 +77,7 @@ $(document).ready(function(){
         return hashParams;
     }
     if (access_token) {
+        console.log(access_token);
         $("#login").hide();
         $("#content").show();
         $("#dropdown").show();
