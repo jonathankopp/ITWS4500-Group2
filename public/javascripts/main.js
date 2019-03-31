@@ -76,6 +76,7 @@ app.controller('user',function ($scope,$http) {
 });
 
 //for user_post part
+//Song playlist
 app.controller('post',function ($scope,$http) {
     //use http(req) to get information
     // $scope.msg="test message";
@@ -92,6 +93,7 @@ app.controller('post',function ($scope,$http) {
         console.log("success call post");
         console.log(data);
 
+        //Song/playlist information
         data = data["data"]["items"];
     }, function(data){
         console.log("fail call post");
