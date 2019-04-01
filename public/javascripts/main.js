@@ -94,7 +94,8 @@ app.controller('post',function ($scope,$http) {
 
         //Song/playlist information
         data = data["data"]["items"];
-        console.log(data);
+        $scope.playlisturls = data;
+        console.log(data[0]);
     }, function(data){
         console.log("fail call post");
     });
@@ -105,6 +106,23 @@ app.controller('post',function ($scope,$http) {
 app.controller('dropdown',function ($scope,$http) {
     //hard coded for testing frontend, a similar result should be return like this
     $scope.options=["a","b","c"];
+
+    var req = {
+        method: 'POST',
+        url: '/post',
+        data: {test_access: access_token}
+    };
+
+    $http(req).then(function(data){
+        console.log("Success in the dropdown");
+
+        //Song/playlist information
+        data = data["data"]["items"];
+        $scope.playlists = data;
+        console.log(data[0]);
+    }, function(data){
+        console.log("fail call post");
+    });
 
 });
 

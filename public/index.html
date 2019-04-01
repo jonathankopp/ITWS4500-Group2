@@ -23,7 +23,7 @@
           My Playlist
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
-          <a class="dropdown-item" href="#" ng-repeat="opt in options">{{opt}}</a>
+          <a class="dropdown-item" href="#" ng-repeat="opt in playlists">{{opt.name}}</a>
         </div>
       </li>
     </ul>
@@ -55,16 +55,16 @@
   </div>
 
   <div class="col-sm-5" id="user-playlist" ng-controller="post">
-    <div class="container bg-dark">
+    <div class="container bg-secondary" ng-repeat="post in playlisturls">
       <div>
         <div class="col-sm-12"><br></div>
         <div class="col-sm-12 UserPosts">
           <div class="col-sm-6">
-            <img src="" class="PostPicture">
+            <img ng-src="{{post.images[0].url}}" class="PostPicture">
           </div>
           <div class="col-sm-6 text-baseline PostText">
             <p class="PostText col-sm-12">
-              {{msg}}
+            {{post.owner.display_name}} added to {{post.name}}.
             </p>
           </div>
         </div>
