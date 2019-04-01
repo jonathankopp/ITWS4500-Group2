@@ -27,11 +27,13 @@ Open your browser, go to http://localhost:3000
 - Frontend
     - dropdown list
         - playlist data acquisition
+        Alston
     - user profile
         - profile data acquisition
         - display user profile in nice format
     - user post
         - post data acquisition
+        Alston
         - display user post in nice format
     - user comment
         - comment data acquisition
