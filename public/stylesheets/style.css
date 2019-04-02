@@ -22,7 +22,55 @@ a {
 .title{
   padding: 5%;
 }
-
 .userProfilePicture{
-  width: 80%;
+  width: 50%;
+}
+body{
+  background-image: url("../images/background.jpg");
+}
+.PostPicture{
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom:10%;
+}
+.PostText{
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.UserPosts{
+  margin-bottom:10px;
+}
+#logo{
+  font-size: xx-large;
+  margin-right: 0rem;
+}
+
+.brand{
+  color: white;
+  font-size: xx-large;
+}
+.brand:hover{
+  cursor: default;
+  color: white;
+}
+#navbarDropdown{
+  margin-left: auto;
+  margin-right: auto;
+}
+.fix{
+  position: fixed;
+  top:15px;
+
+  right:0;
+}
+#navbarDropdown{
+  position: fixed;
+  top:15px;
+  left: 47%;
+}
+#jukebox{
+  position: fixed;
+  top:15px;
+  z-index: 999;
+
 }

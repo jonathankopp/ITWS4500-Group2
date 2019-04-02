@@ -1,5 +1,4 @@
 <html>
-
 <head>
   <title>Jukebox</title>
   <link rel="stylesheet" href="/stylesheets/style.css">
@@ -10,8 +9,8 @@
 
 <body ng-app="app">
 
-<nav class="navbar navbar-expand-md navbar-light bg-light">
-  <a class="navbar-brand" href="#">Jukebox</a>
+<nav class="navbar navbar-expand-md navbar-dark">
+  <a class="brand" href="#" id="jukebox">Jukebox</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -28,20 +27,20 @@
       </li>
     </ul>
     <form class="form-inline my-2 my-lg-0" action="/">
-      <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="logout">Log Out</button>
+      <button class="btn btn-outline-success my-2 my-sm-0 fix" type="submit" id="logout">Log Out</button>
     </form>
   </div>
 </nav>
 
 <div id="login" class="text-center">
   <h1>Welcome to jukebox</h1>
-    <a href="/login" class="btn btn-success" id="loginBtn">Login</a>
+  <a href="/login" class="btn btn-success" id="loginBtn">Login</a>
 </div>
 
-<div class="container-fluid row" id="content" >
+<div class="container-fluid row" id="content" style="color: azure;padding-top: 30px">
 
-  <div class="col-sm-4" id="user-profile" ng-controller="user">
-    <div class="container bg-info">
+  <div class="col-sm-3" id="user-profile" ng-controller="user">
+    <div class="container">
       <h4 class="title text-center">Welcome {{nickname}}</h4>
       <div class="text-center">
         <img src={{imgUrl}} alt="user image" class="userProfilePicture">
@@ -54,26 +53,21 @@
     </div>
   </div>
 
-  <div class="col-sm-5" id="user-playlist" ng-controller="post">
-    <div class="container bg-secondary" ng-repeat="post in playlisturls">
-      <div>
-        <div class="col-sm-12"><br></div>
-        <div class="col-sm-12 UserPosts">
-          <div class="col-sm-6">
-            <img ng-src="{{post.images[0].url}}" class="PostPicture">
-          </div>
-          <div class="col-sm-6 text-baseline PostText">
-            <p class="PostText col-sm-12">
-            {{post.owner.display_name}} added to {{post.name}}.
-            </p>
-          </div>
+  <div class="col-sm-6" id="user-playlist" ng-controller="post">
+    <div class="container" ng-repeat="post in playlisturls">
+      <div class="UserPosts row">
+        <div class="col-sm-6">
+          <img ng-src="{{post.images[0].url}}" class="PostPicture">
+        </div>
+        <div class="col-sm-6 PostText">
+          <p>{{post.owner.display_name}} added to {{post.name}}.</p>
         </div>
       </div>
     </div>
   </div>
 
   <div class="col-sm-3" id="user-comment" ng-controller="comment">
-    <div class="container bg-light" >
+    <div class="container" >
       <h4 class="title"> Comments on {{playlist}}</h4>
       <div style="border: solid 2px; padding: 5px">
         <p>i like this song</p>

@@ -60,7 +60,6 @@ app.controller('user',function ($scope,$http) {
     };
 
     $http(req).then(function(data){
-        console.log("success call user");
         data = data["data"];
         $scope.nickname=data["display_name"];
         $scope.imgUrl=data["images"][0]["url"];
@@ -90,12 +89,9 @@ app.controller('post',function ($scope,$http) {
     };
 
     $http(req).then(function(data){
-        console.log("success call post");
-
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlisturls = data;
-        console.log(data[0]);
     }, function(data){
         console.log("fail call post");
     });
@@ -119,7 +115,7 @@ app.controller('dropdown',function ($scope,$http) {
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
-        console.log(data[0]);
+        console.log(data[0].name);
     }, function(data){
         console.log("fail call post");
     });
