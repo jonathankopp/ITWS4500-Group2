@@ -7,7 +7,8 @@ a {
 }
 
 #login{
-  padding-top: 18%;
+  padding-top: 16%;
+  color: aliceblue;
 }
 
 .animate-show-hide.ng-hide {
@@ -52,25 +53,46 @@ body{
 .brand:hover{
   cursor: default;
   color: white;
+
 }
 #navbarDropdown{
-  margin-left: auto;
-  margin-right: auto;
+  padding-top: 12px;
+  padding-left: 50px ;
+
 }
 .fix{
   position: fixed;
   top:15px;
-
   right:0;
 }
-#navbarDropdown{
-  position: fixed;
-  top:15px;
-  left: 47%;
-}
+
 #jukebox{
   position: fixed;
   top:15px;
   z-index: 999;
 
+}
+#user-profile{
+  position: static;
+}
+
+#comment-submit{
+  position: relative;
+  padding-top: 10px;
+  bottom: 0;
+}
+#welcome{
+  padding-left: 60%;
+}
+#content{
+  color: azure;
+  padding-top: 30px
+}
+
+#user-playlist{
+  border-left: 2px solid #28a745;
+  border-right: 2px solid #28a745;
+}
+.post{
+  border-bottom: 2px solid #28a745;
 }

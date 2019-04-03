@@ -115,7 +115,6 @@ app.controller('dropdown',function ($scope,$http) {
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
-        console.log(data[0].name);
     }, function(data){
         console.log("fail call post");
     });

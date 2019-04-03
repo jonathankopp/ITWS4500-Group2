@@ -12,13 +12,11 @@ router.get('/', function(req, res, next) {
 //backend comment dev goes here, should return data to frontend
 router.post('/comment',function(req,res){
 // req.body.test  is the comment message
-  console.log(req.body.test);
-
+console.log(req.body.test);
 
 });
 
 router.post('/user',function(req,res){
-  console.log(req);
   var access_token = req.body.test_access;
   var url = 'https://api.spotify.com/v1/me';
  
@@ -27,7 +25,6 @@ router.post('/user',function(req,res){
     if(err) { 
       return console.log(err)
     } else {
-      console.log(body);
       res.send(body);
     }
 
@@ -35,7 +32,6 @@ router.post('/user',function(req,res){
 });
 
 router.post('/post',function(req,res){
-  console.log(req);
   var access_token = req.body.test_access;
   var url = 'https://api.spotify.com/v1/me/playlists';
  
@@ -44,7 +40,6 @@ router.post('/post',function(req,res){
     if(err) { 
       return console.log(err)
     } else {
-      console.log(body);
       res.send(body);
     }
 

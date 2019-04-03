@@ -8,36 +8,41 @@
 </head>
 
 <body ng-app="app">
-
-<nav class="navbar navbar-expand-md navbar-dark">
-  <a class="brand" href="#" id="jukebox">Jukebox</a>
-  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav mr-auto">
-      <li class="nav-item dropdown" id="dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          My Playlist
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
-          <a class="dropdown-item" href="#" ng-repeat="opt in playlists">{{opt.name}}</a>
-        </div>
-      </li>
-    </ul>
-    <form class="form-inline my-2 my-lg-0" action="/">
-      <button class="btn btn-outline-success my-2 my-sm-0 fix" type="submit" id="logout">Log Out</button>
-    </form>
-  </div>
-</nav>
-
+<div class="container-fluid navbar-light bg-dark">
+  <nav class="navbar navbar-expand-md navbar-dark">
+    <a class="brand" href="#">Jukebox</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown" id="dropdown">
+          <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            My Playlists
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
+            <a class="dropdown-item" href="#" ng-repeat="opt in playlists">{{opt.name}}</a>
+          </div>
+        </li>
+      </ul>
+      <form class="form-inline my-2 my-lg-0" action="/" >
+        <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="">Log Out</button>
+      </form>
+    </div>
+  </nav>
+</div>
 <div id="login" class="text-center">
-  <h1>Welcome to jukebox</h1>
+  <div class="container">
+    <h1>Welcome to Jukebox</h1>
+    <div class="">
+      <p id="welcome">Surf the Musics in the Jukebox ~</p>
+    </div>
+  </div>
   <a href="/login" class="btn btn-success" id="loginBtn">Login</a>
+
 </div>
 
-<div class="container-fluid row" id="content" style="color: azure;padding-top: 30px">
+<div class="container-fluid row" id="content">
 
   <div class="col-sm-3" id="user-profile" ng-controller="user">
     <div class="container">
@@ -53,8 +58,8 @@
     </div>
   </div>
 
-  <div class="col-sm-6" id="user-playlist" ng-controller="post">
-    <div class="container" ng-repeat="post in playlisturls">
+  <div class="col-sm-5" id="user-playlist" ng-controller="post">
+    <div class="container-fluid post" ng-repeat="post in playlisturls">
       <div class="UserPosts row">
         <div class="col-sm-6">
           <img ng-src="{{post.images[0].url}}" class="PostPicture">
@@ -66,17 +71,21 @@
     </div>
   </div>
 
-  <div class="col-sm-3" id="user-comment" ng-controller="comment">
+  <div class="col-sm-4" id="user-comment" ng-controller="comment">
     <div class="container" >
       <h4 class="title"> Comments on {{playlist}}</h4>
-      <div style="border: solid 2px; padding: 5px">
+      <div style="border-bottom: solid 2px; padding: 5px">
         <p>i like this song</p>
         <p class="text-right">By user a</p>
       </div>
-      <div style="padding-top: 10px">
+      <div id="comment-submit" class="text-center">
         <form ng-submit="submit()">
-          <input type="textarea" ng-model="text" name="text" placeholder="{{placeholder}}" />
-          <input type="submit" id="submit" value="Submit" />
+          <div class="input-group">
+            <div class="input-group">
+              <textarea class="form-control" ng-model="text" aria-label="With textarea"></textarea>
+              <input class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit" value="Comment" />
+            </div>
+          </div>
         </form>
       </div>
     </div>
