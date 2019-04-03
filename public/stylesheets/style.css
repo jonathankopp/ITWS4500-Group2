@@ -95,4 +95,10 @@ body{
 }
 .post{
   border-bottom: 2px solid #28a745;
+
+}
+.transparent-style{
+
+  opacity: 0;
+
 }

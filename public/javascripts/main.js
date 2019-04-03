@@ -23,30 +23,26 @@ if (access_token) {
     $("#dropdown").show();
 }
 
-//for comment part
-app.controller('comment', function($scope,$http) {
-    //init vars
-    $scope.playlist="Default playlist";
-    $scope.text = '';
-    $scope.placeholder="Leave your thought here";
 
-    //when form is submitted, use $http() to send request to node
-    $scope.submit = function() {
-        var req = {
-            method: 'POST',
-            url: '/comment',
-            data: { test: $scope.text }
-        };
-        if ($scope.text) {
-            $http(req).then(function(){
-                console.log("success");
-            }, function(){
-                console.log("fail");
+//for dropdown part
+app.controller('dropdown',function ($scope,$http) {
+    //request to get all playlist
+    var req = {
+        method: 'POST',
+        url: '/post',
+        data: {test_access: access_token}
+    };
+    $http(req).then(function(data){
+        console.log("Success in the dropdown");
 
-            });
+        //Song/playlist information
+        data = data["data"]["items"];
+        $scope.playlists = data;
+    }, function(data){
+        console.log("fail call post");
+    });
 
-        }
-    }
+
 });
 
 //for user profile part part
@@ -98,28 +94,32 @@ app.controller('post',function ($scope,$http) {
 
 });
 
-//for dropdown part
-app.controller('dropdown',function ($scope,$http) {
-    //hard coded for testing frontend, a similar result should be return like this
-    $scope.options=["a","b","c"];
+//for comment part
+app.controller('comment', function($scope,$http) {
+    //init vars
+    $scope.playlist="all playlists";
+    $scope.text = '';
 
-    var req = {
-        method: 'POST',
-        url: '/post',
-        data: {test_access: access_token}
-    };
+    //when form is submitted, use $http() to send request to node
+    $scope.submit = function() {
+        var req = {
+            method: 'POST',
+            url: '/comment',
+            data: { text: $scope.text }
+        };
+        if ($scope.text) {
+            $http(req).then(function(){
+                console.log("success");
+            }, function(){
+                console.log("fail");
 
-    $http(req).then(function(data){
-        console.log("Success in the dropdown");
+            });
 
-        //Song/playlist information
-        data = data["data"]["items"];
-        $scope.playlists = data;
-    }, function(data){
-        console.log("fail call post");
-    });
-
+        }
+    }
 });
+
+
 
 
 

@@ -9,12 +9,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Log in' });
 });
 
-//backend comment dev goes here, should return data to frontend
-router.post('/comment',function(req,res){
-// req.body.test  is the comment message
-console.log(req.body.test);
-
-});
 
 router.post('/user',function(req,res){
   var access_token = req.body.test_access;
@@ -44,6 +38,13 @@ router.post('/post',function(req,res){
     }
 
   });
+});
+
+//backend comment dev goes here, should return data to frontend
+router.post('/comment',function(req,res){
+// req.body.test  is the comment message
+  console.log(req.body.text);
+
 });
 
 

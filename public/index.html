@@ -8,6 +8,7 @@
 </head>
 
 <body ng-app="app">
+<a href="#" id="test">test</a>
 <div class="container-fluid navbar-light bg-dark">
   <nav class="navbar navbar-expand-md navbar-dark">
     <a class="brand" href="#">Jukebox</a>
@@ -21,7 +22,7 @@
             My Playlists
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
-            <a class="dropdown-item" href="#" ng-repeat="opt in playlists">{{opt.name}}</a>
+            <a class="dropdown-item" href="#" ng-repeat="opt in playlists" id="{{opt.name}}}">{{opt.name}}</a>
           </div>
         </li>
       </ul>
@@ -80,8 +81,9 @@
       <div id="comment-submit" class="text-center">
         <form ng-submit="submit()">
           <div class="input-group">
-            <div class="input-group">
-              <textarea class="form-control" ng-model="text" aria-label="With textarea"></textarea>
+            <div class="input-group text-center style">
+              <textarea cols="20" class="form-control" ng-model="text" aria-label="With textarea"></textarea>
+              <p class="transparent-style">ff</p>
               <input class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit" value="Comment" />
             </div>
           </div>
