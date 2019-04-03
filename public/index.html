@@ -21,11 +21,17 @@
           <a class="nav-link dropdown-toggle active" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
             My Playlists
           </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
+          <!-- <div class="dropdown-menu" aria-labelledby="navbarDropdown" ng-controller="dropdown" >
             <a class="dropdown-item" href="#" ng-repeat="opt in playlists" id="{{opt.name}}}">{{opt.name}}</a>
-          </div>
+          </div> -->
         </li>
       </ul>
+      <form ng-controller ="dropdown" class="navbar-nav mr-auto">
+        <select ng-model="chosenPlaylist" id="dropdownPL" placeholder="Playlist">
+          <option value="All Playlists" selected>All Playlists</option>
+          <option class="dropdown-item" ng-repeat="opt in playlists" id="{{opt.name}}}">{{opt.name}}</option>
+        </select>
+      </form>
       <form class="form-inline my-2 my-lg-0" action="/" >
         <button class="btn btn-outline-light my-2 my-sm-0" type="submit" id="">Log Out</button>
       </form>

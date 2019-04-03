@@ -74,10 +74,6 @@ app.controller('user',function ($scope,$http) {
 //Song playlist
 app.controller('post',function ($scope,$http) {
     //use http(req) to get information
-    // $scope.msg="test message";
-    // $scope.user="Alice";
-    // $scope.image="";
-
     var req = {
         method: 'POST',
         url: '/post',
@@ -87,9 +83,26 @@ app.controller('post',function ($scope,$http) {
     $http(req).then(function(data){
         //Song/playlist information
         data = data["data"]["items"];
-        $scope.playlisturls = data;
+        $scope.playlisturls = data; //playlists to be currently displayed
+        $scope.allPlaylists = data; //all playlists (including those not displayed)
     }, function(data){
         console.log("fail call post");
+    });
+
+    //Filter posts to match selected playlist from dropdown
+    $('#dropdownPL').on('change', function() { //When new dropdown selected
+      if(this.value == "All Playlists"){ //If All Playlists selected
+        $scope.playlisturls = $scope.allPlaylists
+      } else { //If specific playlist selected
+        var temp = [];
+        for (var i = 0; i < $scope.allPlaylists.length; i++) {
+            if($scope.allPlaylists[i].name == this.value){
+              temp.push($scope.allPlaylists[i]);
+            }
+        }
+        $scope.playlisturls = temp;
+      }
+      $scope.$apply();
     });
 
 });
