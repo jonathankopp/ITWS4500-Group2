@@ -6,9 +6,6 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "@angular/animations": "^7.2.12",
-    "@angular/cdk": "^7.3.6",
-    "@angular/material": "^7.3.6",
     "bootstrap-select": "^1.13.9",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
