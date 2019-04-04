@@ -38,6 +38,7 @@ app.controller('dropdown',function ($scope,$http) {
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
+        console.log(data);
     }, function(data){
         console.log("fail call post");
     });
