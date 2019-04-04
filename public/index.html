@@ -20,7 +20,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mr-auto">
       </ul>
-      <form ng-controller="dropdown" class="navbar-nav mr-auto">
+      <form ng-controller="dropdown" class="navbar-nav mr-auto" id="dropdown">
         <select class="selectpicker" data-style="btn-success" id="dropdownPL">
           <option value="All Playlists" selected>All Playlists</option>
           <option class="dropdown-item" ng-repeat="opt in playlists" id="{{opt.name}}}">{{opt.name}}</option>

@@ -3,6 +3,7 @@ var app = angular.module('app', []);
 
 $("#content").hide();
 $("#dropdown").hide();
+
 var params = getHashParams();
 var access_token = params.access_token,
     refresh_token = params.refresh_token,
