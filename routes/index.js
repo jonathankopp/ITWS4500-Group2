@@ -40,6 +40,49 @@ router.post('/post',function(req,res){
   });
 });
 
+router.post('/tracks', function(req, res){
+  var access_token = req.body.test_access;
+  var url = req.body.href;
+  var playlist = req.body.playlist;
+  request(url, { json: true, headers: {'Authorization': 'Bearer ' + access_token} }, (err, response, body) => {
+    if(err){
+      return console.log(err);
+    } else {
+      // console.log(body["items"][0]["added_at"]);
+      // console.log(body["items"][1]["added_at"]);
+      allTracks = [];
+      if(body["items"].length >= 1){
+        allTracks.push({
+                        "playlist": playlist, 
+                        timestamp: body["items"][0]["added_at"], 
+                        songName: body["items"][0]["track"]["name"],
+                        albumCover: body["items"][0]["track"]["album"]["images"][0]["url"],
+                        user: body["items"][0]["added_by"]["id"]
+                    });
+      }
+      if(body["items"].length >= 2){
+        allTracks.push({
+                        "playlist": playlist, 
+                        timestamp: body["items"][1]["added_at"], 
+                        songName: body["items"][1]["track"]["name"],
+                        albumCover: body["items"][1]["track"]["album"]["images"][0]["url"],
+                        user: body["items"][1]["added_by"]["id"]
+                    });
+      }
+      if(body["items"].length >= 3){
+        allTracks.push({
+                        "playlist": playlist, 
+                        timestamp: body["items"][2]["added_at"], 
+                        songName: body["items"][2]["track"]["name"],
+                        albumCover: body["items"][2]["track"]["album"]["images"][0]["url"],
+                        user: body["items"][2]["added_by"]["id"]
+                    });
+      }
+      res.send(allTracks);
+    }
+  });
+});
+
 //backend comment dev goes here, should return data to frontend
 router.post('/comment',function(req,res){
 // req.body.test  is the comment message

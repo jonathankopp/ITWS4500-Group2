@@ -62,10 +62,10 @@
     <div class="container-fluid post" ng-repeat="post in playlisturls">
       <div class="UserPosts row">
         <div class="col-sm-6">
-          <img ng-src="{{post.images[0].url}}" class="PostPicture">
+          <img ng-src="{{post.albumCover}}" class="PostPicture">
         </div>
         <div class="col-sm-6 PostText">
-          <p>{{post.owner.display_name}} added to {{post.name}}.</p>
+          <p>{{post.user}} added {{post.songName}} to {{post.playlist}}.</p>
         </div>
       </div>
     </div>
