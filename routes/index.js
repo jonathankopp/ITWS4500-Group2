@@ -51,31 +51,32 @@ router.post('/tracks', function(req, res){
       // console.log(body["items"][0]["added_at"]);
       // console.log(body["items"][1]["added_at"]);
       allTracks = [];
+      var length = body["items"].length;
       if(body["items"].length >= 1){
         allTracks.push({
                         "playlist": playlist, 
-                        timestamp: body["items"][0]["added_at"], 
-                        songName: body["items"][0]["track"]["name"],
-                        albumCover: body["items"][0]["track"]["album"]["images"][0]["url"],
-                        user: body["items"][0]["added_by"]["id"]
+                        timestamp: body["items"][length-1]["added_at"], 
+                        songName: body["items"][length-1]["track"]["name"],
+                        albumCover: body["items"][length-1]["track"]["album"]["images"][0]["url"],
+                        user: body["items"][length-1]["added_by"]["id"]
                     });
       }
       if(body["items"].length >= 2){
         allTracks.push({
                         "playlist": playlist, 
-                        timestamp: body["items"][1]["added_at"], 
-                        songName: body["items"][1]["track"]["name"],
-                        albumCover: body["items"][1]["track"]["album"]["images"][0]["url"],
-                        user: body["items"][1]["added_by"]["id"]
+                        timestamp: body["items"][length-2]["added_at"], 
+                        songName: body["items"][length-2]["track"]["name"],
+                        albumCover: body["items"][length-2]["track"]["album"]["images"][0]["url"],
+                        user: body["items"][length-2]["added_by"]["id"]
                     });
       }
       if(body["items"].length >= 3){
         allTracks.push({
                         "playlist": playlist, 
-                        timestamp: body["items"][2]["added_at"], 
-                        songName: body["items"][2]["track"]["name"],
-                        albumCover: body["items"][2]["track"]["album"]["images"][0]["url"],
-                        user: body["items"][2]["added_by"]["id"]
+                        timestamp: body["items"][length-3]["added_at"], 
+                        songName: body["items"][length-3]["track"]["name"],
+                        albumCover: body["items"][length-3]["track"]["album"]["images"][0]["url"],
+                        user: body["items"][length-3]["added_by"]["id"]
                     });
       }
       res.send(allTracks);
