@@ -1,0 +1,104 @@
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+
+#login{
+  padding-top: 16%;
+  color: aliceblue;
+}
+
+.animate-show-hide.ng-hide {
+  opacity: 0;
+}
+
+.animate-show-hide.ng-hide-add,
+.animate-show-hide.ng-hide-remove {
+  transition: all linear 0s;
+}
+
+.title{
+  padding: 5%;
+}
+.userProfilePicture{
+  width: 50%;
+}
+body{
+  background-image: url("../images/background.jpg");
+}
+.PostPicture{
+  width: 100%;
+  margin-top: 10%;
+  margin-bottom:10%;
+}
+.PostText{
+  margin-bottom: auto;
+  margin-top: auto;
+}
+.UserPosts{
+  margin-bottom:10px;
+}
+#logo{
+  font-size: xx-large;
+  margin-right: 0rem;
+}
+
+.brand{
+  color: white;
+  font-size: xx-large;
+}
+.brand:hover{
+  cursor: default;
+  color: white;
+
+}
+#navbarDropdown{
+  padding-top: 12px;
+  padding-left: 50px ;
+
+}
+.fix{
+  position: fixed;
+  top:15px;
+  right:0;
+}
+
+#jukebox{
+  position: fixed;
+  top:15px;
+  z-index: 999;
+
+}
+#user-profile{
+  position: static;
+}
+
+#comment-submit{
+  position: relative;
+  padding-top: 10px;
+  bottom: 0;
+}
+#welcome{
+  padding-left: 60%;
+}
+#content{
+  color: azure;
+  padding-top: 30px
+}
+
+#user-playlist{
+  border-left: 2px solid #28a745;
+  border-right: 2px solid #28a745;
+}
+.post{
+  border-bottom: 2px solid #28a745;
+
+}
+.transparent-style{
+
+  opacity: 0;
+
+}
