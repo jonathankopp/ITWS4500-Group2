@@ -117,6 +117,9 @@ app.controller('post',function ($scope,$http) {
             if(data[i]["user"] == ""){
                 data[i]["user"] = "Spotify";
             }
+            if(data[i]["user"].length > 15){
+                data[i]["user"] = "Someone";
+            }
         }
         return data;
     }
