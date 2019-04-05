@@ -24,22 +24,15 @@ npm start
 Open your browser, go to http://localhost:3000
 
 #### Todo list:
-- Frontend
-    - dropdown list
-        - playlist data acquisition
-        Alston
-    - user profile
-        - profile data acquisition
-        - display user profile in nice format
-    - user post
-        - post data acquisition
-        Alston
-        - display user post in nice format
-    - user comment
-        - comment data acquisition
-        - display user comment in nice format
-    - logout button
+- Frontend (H)
+    * mobile fitness
+    * give post comment background image with hig/low opacity for reading
+    * cut the bg image and do reverse
+    
+    
 - Backend
+    * mdb to save comment related to playlist (J)
+    * query to return relative comments (J)
     
 
 

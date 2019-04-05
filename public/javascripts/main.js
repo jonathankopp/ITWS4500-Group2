@@ -39,7 +39,7 @@ app.controller('dropdown',function ($scope,$http) {
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
-        console.log(data);
+        console.log($scope.playlists);
     }, function(data){
         console.log("fail call post");
     });
@@ -75,6 +75,56 @@ app.controller('user',function ($scope,$http) {
 //for user_post part
 //Song playlist
 app.controller('post',function ($scope,$http) {
+
+    //Get recently added tracks for each playlist
+    $scope.myPromise = (playlist) => {
+        return new Promise((resolve, reject) => {
+            var allTracks = [];
+            var count = 0;
+            //Loop through list of playlists
+            for (var i = 0; i < playlist.length; i++) {
+                var playlistName = playlist[i]["name"];
+                var attr = {
+                    method: 'POST',
+                    url: '/tracks',
+                    data: {test_access: access_token, href: playlist[i]["tracks"]["href"], "playlist": playlistName}
+                };
+
+                //Send post request to backend for Spotify API call
+                //Return list of recently added tracks for each playlist
+                $http(attr).then(function(data){
+                    data = data["data"];
+                    console.log("success track post");
+                    count++;
+                    allTracks = allTracks.concat(data); //Concatenate all tracks from all playlists into one array
+                    if(count == playlist.length){ //If we are at the last playlist in list, return track array
+                        resolve(allTracks);
+                    }
+                }, function(data){
+                    console.log("fail track post");
+                });
+            }
+        });
+    }
+
+    //Wait til post request/API call finished, & all tracks put in array
+    var callMyPromise = async (data) => {
+        var result = await ($scope.myPromise(data));
+        return result;
+    }
+
+    $scope.organize = function (data){
+        for (var i = data.length - 1; i >= 0; i--) {
+            if(data[i]["user"] == ""){
+                data[i]["user"] = "Spotify";
+            }
+            if(data[i]["user"].length > 15){
+                data[i]["user"] = "Someone";
+            }
+        }
+        return data;
+    }
+
     //use http(req) to get information
     var req = {
         method: 'POST',
@@ -82,11 +132,24 @@ app.controller('post',function ($scope,$http) {
         data: {test_access: access_token}
     };
 
+    //Get list of playlists that user follows
     $http(req).then(function(data){
         //Song/playlist information
         data = data["data"]["items"];
-        $scope.playlisturls = data; //playlists to be currently displayed
-        $scope.allPlaylists = data; //all playlists (including those not displayed)
+        // $scope.playlisturls = data; //playlists to be currently displayed
+        // $scope.allPlaylists = data; //all playlists (including those not displayed)
+
+        //Get individual track data
+        var tracks = [];
+        //Use list of playlists to get list of recently added tracks for each playlist using API
+        //Wait til API call finished
+        callMyPromise(data).then(function(result){
+            tracks = result;
+            console.log(tracks);
+            $scope.playlisturls = $scope.organize(tracks);
+            $scope.allPlaylists = $scope.organize(tracks);
+            $scope.$apply();
+        });
     }, function(data){
         console.log("fail call post");
     });
@@ -98,7 +161,7 @@ app.controller('post',function ($scope,$http) {
       } else { //If specific playlist selected
         var temp = [];
         for (var i = 0; i < $scope.allPlaylists.length; i++) {
-            if($scope.allPlaylists[i].name == this.value){
+            if($scope.allPlaylists[i].playlist == this.value){
               temp.push($scope.allPlaylists[i]);
             }
         }
@@ -134,31 +197,6 @@ app.controller('comment', function($scope,$http) {
     }
 });
 
-
-
-
-
-
-// javascript to make sure user has authorized the usage of their spotify information
-
-
-$("#content").hide();
-$("#dropdown").hide();
-var params = getHashParams();
-var access_token = params.access_token,
-    refresh_token = params.refresh_token,
-    error = params.error;
-function getHashParams() {
-    var hashParams = {};
-    var e, r = /([^&;=]+)=?([^&;]*)/g,
-        q = window.location.hash.substring(1);
-    while ( e = r.exec(q)) {
-        hashParams[e[1]] = decodeURIComponent(e[2]);
-    }
-    return hashParams;
-}
-if (access_token) {
-    $("#login").hide();
-    $("#content").show();
-    $("#dropdown").show();
-}
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
