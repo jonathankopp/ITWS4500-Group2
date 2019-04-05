@@ -39,6 +39,7 @@ app.controller('dropdown',function ($scope,$http) {
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
+        console.log($scope.playlists);
     }, function(data){
         console.log("fail call post");
     });
@@ -74,7 +75,7 @@ app.controller('user',function ($scope,$http) {
 //for user_post part
 //Song playlist
 app.controller('post',function ($scope,$http) {
-    
+
     //Get recently added tracks for each playlist
     $scope.myPromise = (playlist) => {
         return new Promise((resolve, reject) => {
@@ -151,7 +152,7 @@ app.controller('post',function ($scope,$http) {
         });
     }, function(data){
         console.log("fail call post");
-    });    
+    });
 
     //Filter posts to match selected playlist from dropdown
     $('#dropdownPL').on('change', function() { //When new dropdown selected
@@ -196,3 +197,6 @@ app.controller('comment', function($scope,$http) {
     }
 });
 
+$( document ).ready(function() {
+    console.log( "ready!" );
+});
