@@ -107,6 +107,9 @@ body{
   color: white;
   font-size: larger;
   background-color: #353940;
-  border: 2px solid #28a745;
-
+  border: 1px solid white;
+}
+.comment{
+  background-color: rgba(151,207,208,0.38);
+  padding: 3%;
 }
