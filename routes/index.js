@@ -9,7 +9,6 @@ router.get('/', function(req, res, next) {
   res.render('index', { title: 'Log in' });
 });
 
-
 router.post('/user',function(req,res){
   var access_token = req.body.test_access;
   var url = 'https://api.spotify.com/v1/me';
