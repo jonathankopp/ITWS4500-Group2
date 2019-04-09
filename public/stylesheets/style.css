@@ -40,6 +40,8 @@ body{
 }
 .UserPosts{
   margin-bottom:10px;
+  background-color: rgba(151,207,208,0.38);
+
 }
 #logo{
   font-size: xx-large;
@@ -86,7 +88,13 @@ body{
 }
 #content{
   color: azure;
-  padding-top: 30px
+  padding-top: 30px;
+  margin-left: 1%;
+  margin-right: 1%;
+
+}
+#profile{
+
 }
 
 #user-playlist{
@@ -95,8 +103,6 @@ body{
 
 }
 .post{
-  border-bottom: 2px solid #28a745;
-
 }
 .transparent-style{
 
