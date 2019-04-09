@@ -49,33 +49,50 @@ router.post('/tracks', function(req, res){
     } else {
       // console.log(body["items"][0]["added_at"]);
       // console.log(body["items"][1]["added_at"]);
-      allTracks = [];
+
+      var noAlbumCover = "/images/coverArt.jpg";
+      var allTracks = [];
       var length = body["items"].length;
       if(body["items"].length >= 1){
+        var data = ["", "", "", ""];
+        data[0] = body["items"][length-1]["added_at"] ? body["items"][length-1]["added_at"] : "";
+        data[1] = body["items"][length-1]["track"]["name"] ? body["items"][length-1]["track"]["name"] : "Unkown";
+        data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"] ? body["items"][length-1]["track"]["album"]["images"][0]["url"] : noAlbumCover;
+        data[3] = body["items"][length-1]["added_by"]["id"] ? body["items"][length-1]["added_by"]["id"] : "";
         allTracks.push({
                         "playlist": playlist, 
-                        timestamp: body["items"][length-1]["added_at"], 
-                        songName: body["items"][length-1]["track"]["name"],
-                        albumCover: body["items"][length-1]["track"]["album"]["images"][0]["url"],
-                        user: body["items"][length-1]["added_by"]["id"]
+                        timestamp: data[0], 
+                        songName: data[1],
+                        albumCover: data[2],
+                        user: data[3]
                     });
       }
       if(body["items"].length >= 2){
+        var data = ["", "", "", ""];
+        data[0] = body["items"][length-2]["added_at"] ? body["items"][length-2]["added_at"] : "";
+        data[1] = body["items"][length-2]["track"]["name"] ? body["items"][length-2]["track"]["name"] : "Unkown";
+        data[2] = body["items"][length-2]["track"]["album"]["images"][0]["url"] ? body["items"][length-2]["track"]["album"]["images"][0]["url"] : noAlbumCover;
+        data[3] = body["items"][length-2]["added_by"]["id"] ? body["items"][length-2]["added_by"]["id"] : "";
         allTracks.push({
                         "playlist": playlist, 
-                        timestamp: body["items"][length-2]["added_at"], 
-                        songName: body["items"][length-2]["track"]["name"],
-                        albumCover: body["items"][length-2]["track"]["album"]["images"][0]["url"],
-                        user: body["items"][length-2]["added_by"]["id"]
+                        timestamp: data[0], 
+                        songName: data[1],
+                        albumCover: data[2],
+                        user: data[3]
                     });
       }
       if(body["items"].length >= 3){
+        var data = ["", "", "", ""];
+        data[0] = body["items"][length-3]["added_at"] ? body["items"][length-3]["added_at"] : "";
+        data[1] = body["items"][length-3]["track"]["name"] ? body["items"][length-3]["track"]["name"] : "Unkown";
+        data[2] = body["items"][length-3]["track"]["album"]["images"][0]["url"] ? body["items"][length-3]["track"]["album"]["images"][0]["url"] : noAlbumCover;
+        data[3] = body["items"][length-3]["added_by"]["id"] ? body["items"][length-3]["added_by"]["id"] : "";
         allTracks.push({
                         "playlist": playlist, 
-                        timestamp: body["items"][length-3]["added_at"], 
-                        songName: body["items"][length-3]["track"]["name"],
-                        albumCover: body["items"][length-3]["track"]["album"]["images"][0]["url"],
-                        user: body["items"][length-3]["added_by"]["id"]
+                        timestamp: data[0], 
+                        songName: data[1],
+                        albumCover: data[2],
+                        user: data[3]
                     });
       }
       res.send(allTracks);
