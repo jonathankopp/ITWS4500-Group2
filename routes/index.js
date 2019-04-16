@@ -3,6 +3,8 @@ var express = require('express');
 var router = express.Router();
 var querystring = require('querystring');
 var request = require('request'); // "Request" library
+var MongoClient = require('mongodb').MongoClient; //mongodb needed lib
+const uri = "mongodb+srv://koppej:Mets2014@test1-5846w.mongodb.net/test?retryWrites=true"; //link for database connection
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -118,7 +120,24 @@ router.post('/comment',function(req,res){
   console.log(req.body.text);
   console.log(req.body.playlist);
   console.log(req.body.username);
-
+  var comment = {user: req.body.username, playlist: req.body.playlist, text: req.body.text};
+  //connection to the database
+  MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
+    if (!err) {
+      empty = false;
+      console.log("We are connected");
+      const collection = client.db("Jukebox").collection("comments");
+      //inserting the recently collected comment
+      collection.insertOne(comment, function(err, res){
+        if(err) throw err;
+        console.log("inserted comment: "+comment);
+      });
+      //closing out the connection
+      client.close();
+    }else{
+      console.log(err);
+    }
+  });
 });
 
 
