@@ -57,7 +57,11 @@ router.post('/tracks', function(req, res){
         var data = ["", "", "", ""];
         data[0] = body["items"][length-1]["added_at"] ? body["items"][length-1]["added_at"] : "";
         data[1] = body["items"][length-1]["track"]["name"] ? body["items"][length-1]["track"]["name"] : "Unkown";
-        data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"] ? body["items"][length-1]["track"]["album"]["images"][0]["url"] : noAlbumCover;
+        if(typeof body["items"][length-1]["track"]["album"]["images"][0] == 'undefined'){
+          data[2] = noAlbumCover;
+        }else{
+          data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"];         
+        }
         data[3] = body["items"][length-1]["added_by"]["id"] ? body["items"][length-1]["added_by"]["id"] : "";
         allTracks.push({
                         "playlist": playlist, 
@@ -71,7 +75,11 @@ router.post('/tracks', function(req, res){
         var data = ["", "", "", ""];
         data[0] = body["items"][length-2]["added_at"] ? body["items"][length-2]["added_at"] : "";
         data[1] = body["items"][length-2]["track"]["name"] ? body["items"][length-2]["track"]["name"] : "Unkown";
-        data[2] = body["items"][length-2]["track"]["album"]["images"][0]["url"] ? body["items"][length-2]["track"]["album"]["images"][0]["url"] : noAlbumCover;
+        if(typeof body["items"][length-1]["track"]["album"]["images"][0] == 'undefined'){
+          data[2] = noAlbumCover;
+        }else{
+          data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"];         
+        }     
         data[3] = body["items"][length-2]["added_by"]["id"] ? body["items"][length-2]["added_by"]["id"] : "";
         allTracks.push({
                         "playlist": playlist, 
@@ -85,7 +93,11 @@ router.post('/tracks', function(req, res){
         var data = ["", "", "", ""];
         data[0] = body["items"][length-3]["added_at"] ? body["items"][length-3]["added_at"] : "";
         data[1] = body["items"][length-3]["track"]["name"] ? body["items"][length-3]["track"]["name"] : "Unkown";
-        data[2] = body["items"][length-3]["track"]["album"]["images"][0]["url"] ? body["items"][length-3]["track"]["album"]["images"][0]["url"] : noAlbumCover;
+        if(typeof body["items"][length-1]["track"]["album"]["images"][0] == 'undefined'){
+          data[2] = noAlbumCover;
+        }else{
+          data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"];         
+        }
         data[3] = body["items"][length-3]["added_by"]["id"] ? body["items"][length-3]["added_by"]["id"] : "";
         allTracks.push({
                         "playlist": playlist, 
