@@ -104,6 +104,8 @@ router.post('/tracks', function(req, res){
 router.post('/comment',function(req,res){
 // req.body.test  is the comment message
   console.log(req.body.text);
+  console.log(req.body.playlist);
+  console.log(req.body.username);
 
 });
 

@@ -8,7 +8,6 @@ var params = getHashParams();
 var access_token = params.access_token,
     refresh_token = params.refresh_token,
     error = params.error;
-
 function getHashParams() {
     var hashParams = {};
     var e, r = /([^&;=]+)=?([^&;]*)/g,
@@ -63,7 +62,7 @@ app.controller('user',function ($scope,$http) {
         $scope.imgUrl=data["images"][0]["url"];
         $scope.country=data["country"];
         $scope.spotiy_link=data["external_urls"]["spotify"];
-
+        cur_user=data["display_name"];
     }, function(data){
         console.log("fail call user");
     });
@@ -174,29 +173,42 @@ app.controller('post',function ($scope,$http) {
 
 //for comment part
 app.controller('comment', function($scope,$http) {
+    var req = {
+        method: 'POST',
+        url: '/user',
+        data: {test_access: access_token}
+    };
+    $http(req).then(function(data){
+        data = data["data"];
+        $scope.nickname=data["display_name"];
+    }, function(data){
+        console.log("fail call user");
+    });
     //init vars
-    $scope.playlist="all playlists";
+    $scope.currentplaylist="all playlists";
     $scope.text = '';
-
     //when form is submitted, use $http() to send request to node
     $scope.submit = function() {
         var req = {
             method: 'POST',
             url: '/comment',
-            data: { text: $scope.text }
+            data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.nickname, }
         };
         if ($scope.text) {
             $http(req).then(function(){
                 console.log("success");
             }, function(){
                 console.log("fail");
-
             });
-
         }
-    }
-});
-
-$( document ).ready(function() {
-    console.log( "ready!" );
+    };
+    //Filter posts to match selected playlist from dropdown
+    $('#dropdownPL').on('change', function() { //When new dropdown selected
+        if(this.value == "All Playlists"){ //If All Playlists selected
+            $scope.playlisturls = $scope.allPlaylists
+        } else { //If specific playlist selected
+            $scope.currentplaylist = this.value;
+        }
+        $scope.$apply();
+    });
 });
