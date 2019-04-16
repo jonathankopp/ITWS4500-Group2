@@ -186,6 +186,8 @@ app.controller('comment', function($scope,$http) {
     });
     //init vars
     $scope.currentplaylist="all playlists";
+    $scope.user="test";
+    $scope.time="2019";
     $scope.text = '';
     //when form is submitted, use $http() to send request to node
     $scope.submit = function() {

@@ -35,10 +35,10 @@
 <div id="login" class="text-center">
   <div class="container">
     <h1>Welcome to Jukebox</h1>
-      <div class="">
+    <div class="">
       <p id="welcome">Surf the Musics in Jukebox ~</p>
     </div>
-      <a href="/login" class="btn btn-success" id="loginBtn">Login</a>
+    <a href="/login" class="btn btn-success" id="loginBtn">Login</a>
 
   </div>
 </div>
@@ -53,7 +53,7 @@
       </div>
       <jumbotron class="title text-center">
         <p>Country: {{country}}</p>
-        <p><a href="{{spotiy_link}}" style="color: #00B7FF">Open Spotify</a></p>
+        <p><a href="{{spotiy_link}}" style="color: #28a745;font-size: x-large">Open Spotify</a></p>
       </jumbotron>
     </div>
   </div>
@@ -65,7 +65,7 @@
           <img ng-src="{{post.albumCover}}" class="PostPicture">
         </div>
         <div class="col-sm-6 PostText">
-          <p>{{post.user}} added {{post.songName}} to {{post.playlist}}.</p>
+          <p>{{post.user}} added <em>{{post.songName}}</em> to <u>{{post.playlist}}</u>.</p>
         </div>
       </div>
     </div>
@@ -73,10 +73,10 @@
 
   <div class="col-sm-4" id="user-comment" ng-controller="comment">
     <div class="container">
-      <h4 class="title"> Comments on {{playlist}}</h4>
+      <h4 class="title"> Comments on {{currentplaylist}}</h4>
       <div class="comment">
         <p>i like this song</p>
-        <p class="text-right">By user a</p>
+        <p class="text-right">By user {{user}}, <i>{{time}}</i></p>
       </div>
       <div id="comment-submit" class="text-center">
         <form ng-submit="submit()">

@@ -96,7 +96,7 @@ body{
 
 }
 .post{
-  background-color: rgba(151,207,208,0.38);
+  background-color: rgba(151, 207, 208, 0.56);
 }
 .transparent-style{
 
@@ -110,6 +110,6 @@ body{
   border: 1px solid white;
 }
 .comment{
-  background-color: rgba(151,207,208,0.38);
+  background-color: rgba(151, 207, 208, 0.56);
   padding: 3%;
 }
