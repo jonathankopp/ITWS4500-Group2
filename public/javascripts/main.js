@@ -200,7 +200,7 @@ app.controller('comment', function($scope,$http) {
         var req = {
             method: 'POST',
             url: '/insertComment',
-            data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.user, }
+            data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.nickname, }
         };
         if ($scope.text) {
             $http(req).then(function(){
