@@ -124,8 +124,13 @@ app.controller('post',function ($scope,$http) {
                 data[i]["user"] = "Someone";
             }
         }
-        console.log(data);
+        data.sort(custom_sort);
         return data;
+    }
+
+    //Sort tracks by date
+    function custom_sort(a, b) {
+        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
     }
 
     //use http(req) to get information
@@ -139,8 +144,6 @@ app.controller('post',function ($scope,$http) {
     $http(req).then(function(data){
         //Song/playlist information
         data = data["data"]["items"];
-        // $scope.playlisturls = data; //playlists to be currently displayed
-        // $scope.allPlaylists = data; //all playlists (including those not displayed)
 
         //Get individual track data
         var tracks = [];
@@ -148,7 +151,6 @@ app.controller('post',function ($scope,$http) {
         //Wait til API call finished
         callMyPromise(data).then(function(result){
             tracks = result;
-            console.log(tracks);
             $scope.playlisturls = $scope.organize(tracks);
             $scope.allPlaylists = $scope.organize(tracks);
             $scope.$apply();
