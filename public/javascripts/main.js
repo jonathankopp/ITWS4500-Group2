@@ -3,6 +3,7 @@ var app = angular.module('app', []);
 
 $("#content").hide();
 $("#dropdown").hide();
+$("#commentContent").hide();
 
 var params = getHashParams();
 var access_token = params.access_token,
@@ -155,6 +156,8 @@ app.controller('post',function ($scope,$http) {
 
     //Filter posts to match selected playlist from dropdown
     $('#dropdownPL').on('change', function() { //When new dropdown selected
+        $('#commentWelcome').hide();
+        $('#commentContent').show();
       if(this.value == "All Playlists"){ //If All Playlists selected
         $scope.playlisturls = $scope.allPlaylists
       } else { //If specific playlist selected
