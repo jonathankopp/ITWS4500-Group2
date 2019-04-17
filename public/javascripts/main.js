@@ -179,13 +179,17 @@ app.controller('post',function ($scope,$http) {
 
 //for comment part
 app.controller('comment', function($scope,$http) {
-    
-    // $http(req).then(function(data){
-    //     data = data["data"];
-    //     $scope.nickname=data["display_name"];
-    // }, function(data){
-    //     console.log("fail call user");
-    // });
+    var req = {
+        method: 'POST',
+        url: '/user',
+        data: {test_access: access_token}
+    };
+    $http(req).then(function(data){
+        data = data["data"];
+        $scope.nickname=data["display_name"];
+    }, function(data){
+        console.log("fail call user");
+    });
     //init vars
     $scope.currentplaylist="all playlists";
     $scope.user="test";
