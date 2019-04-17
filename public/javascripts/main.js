@@ -4,6 +4,7 @@ var app = angular.module('app', []);
 $("#content").hide();
 $("#dropdown").hide();
 $("#commentContent").hide();
+$("#logout").hide();
 
 var params = getHashParams();
 var access_token = params.access_token,
@@ -22,6 +23,7 @@ if (access_token) {
     $("#login").hide();
     $("#content").show();
     $("#dropdown").show();
+    $("#logout").show();
 }
 
 
