@@ -115,13 +115,34 @@ router.post('/tracks', function(req, res){
 });
 
 //backend comment dev goes here, should return data to frontend
-router.post('/comment',function(req,res){
+router.post('/insertComment',function(req,res){
 // req.body.test  is the comment message
   console.log(req.body.text);
   console.log(req.body.playlist);
   console.log(req.body.username);
   var comment = {user: req.body.username, playlist: req.body.playlist, text: req.body.text, time:Date.now()};
   //connection to the database
+  MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
+    if (!err) {
+      empty = false;
+      console.log("We are connected");
+      const collection = client.db("Jukebox").collection("comments");
+      //inserting the recently collected comment
+      collection.insertOne(comment, function(err, res){
+        if(err) throw err;
+        console.log("inserted comment: "+comment);
+      });
+      //closing out the connection
+      client.close();
+    }else{
+      console.log(err);
+    }
+  });
+});
+
+router.post('/pullComments',function(req,res){
+// req.body.test  is the comment message
+  cosole.log("Pull "+req.body.playlist);
   MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
     if (!err) {
       empty = false;
