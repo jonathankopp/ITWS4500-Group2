@@ -132,8 +132,9 @@ router.post('/insertComment',function(req,res){
         if(err) throw err;
         console.log("inserted comment: "+comment);
       });
+      res.send("ok");
       //closing out the connection
-      client.close();
+      
     }else{
       console.log(err);
     }
@@ -141,21 +142,24 @@ router.post('/insertComment',function(req,res){
 });
 
 
-router.post('/pullComments',function(req,res){
+router.post('/pullComment',function(req,res){
 // req.body.test  is the comment message
-  cosole.log("Pull "+req.body.playlist);
+  console.log("Pull data"+req.body.playlist);
   MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
     if (!err) {
       empty = false;
       console.log("We are connected");
       const collection = client.db("Jukebox").collection("comments");
       //inserting the recently collected comment
-      collection.insertOne(comment, function(err, res){
-        if(err) throw err;
-        console.log("inserted comment: "+comment);
+      var found = collection.find({"playlist": req.body.playlist}).sort({"time":1});
+      var data = [];
+      found.forEach(function(e){
+        data.push(e);
+      }).then(function(result){
+        client.close();
+        res.status(200).send(data);
       });
       //closing out the connection
-      client.close();
     }else{
       console.log(err);
     }

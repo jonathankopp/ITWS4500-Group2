@@ -196,13 +196,13 @@ app.controller('comment', function($scope,$http) {
         var req = {
             method: 'POST',
             url: '/insertComment',
-            data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.nickname, }
+            data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.user, }
         };
         if ($scope.text) {
             $http(req).then(function(){
-                console.log("success");
+                console.log("success insertComment");
             }, function(){
-                console.log("fail");
+                console.log("fail insertComment");
             });
         }
     };
@@ -211,6 +211,7 @@ app.controller('comment', function($scope,$http) {
         if(this.value == "All Playlists"){ //If All Playlists selected
             //don't show comments
         } else { //If specific playlist selected
+            console.log("dropdownchange: "+this.value);
             $scope.currentplaylist = this.value;
             var req = {
                 method: 'POST',
@@ -218,9 +219,10 @@ app.controller('comment', function($scope,$http) {
                 data: {test_access: access_token, playlist: $scope.currentplaylist}
             };
             $http(req).then(function(data){
+                console.log("Success pullComment");
                 console.log(data);
             }, function(data){
-                console.log("fail call user");
+                console.log("fail call pullComment");
             });
 
         }
