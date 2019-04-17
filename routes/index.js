@@ -141,7 +141,7 @@ router.post('/insertComment',function(req,res){
 });
 
 
-router.post('/pullComments',function(req,res){
+router.post('/pullComment',function(req,res){
 // req.body.test  is the comment message
   cosole.log("Pull "+req.body.playlist);
   MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
