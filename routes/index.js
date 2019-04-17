@@ -140,6 +140,7 @@ router.post('/insertComment',function(req,res){
   });
 });
 
+
 router.post('/pullComments',function(req,res){
 // req.body.test  is the comment message
   cosole.log("Pull "+req.body.playlist);
@@ -160,6 +161,9 @@ router.post('/pullComments',function(req,res){
     }
   });
 });
+
+//
+
 
 
 var client_id = '1d919a5a30ef4be69dd04141c730e3a9'; // Your client id
