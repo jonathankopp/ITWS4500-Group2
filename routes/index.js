@@ -77,10 +77,10 @@ router.post('/tracks', function(req, res){
         var data = ["", "", "", ""];
         data[0] = body["items"][length-2]["added_at"] ? body["items"][length-2]["added_at"] : "";
         data[1] = body["items"][length-2]["track"]["name"] ? body["items"][length-2]["track"]["name"] : "Unkown";
-        if(typeof body["items"][length-1]["track"]["album"]["images"][0] == 'undefined'){
+        if(typeof body["items"][length-2]["track"]["album"]["images"][0] == 'undefined'){
           data[2] = noAlbumCover;
         }else{
-          data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"];         
+          data[2] = body["items"][length-2]["track"]["album"]["images"][0]["url"];         
         }     
         data[3] = body["items"][length-2]["added_by"]["id"] ? body["items"][length-2]["added_by"]["id"] : "";
         allTracks.push({
@@ -95,10 +95,10 @@ router.post('/tracks', function(req, res){
         var data = ["", "", "", ""];
         data[0] = body["items"][length-3]["added_at"] ? body["items"][length-3]["added_at"] : "";
         data[1] = body["items"][length-3]["track"]["name"] ? body["items"][length-3]["track"]["name"] : "Unkown";
-        if(typeof body["items"][length-1]["track"]["album"]["images"][0] == 'undefined'){
+        if(typeof body["items"][length-3]["track"]["album"]["images"][0] == 'undefined'){
           data[2] = noAlbumCover;
         }else{
-          data[2] = body["items"][length-1]["track"]["album"]["images"][0]["url"];         
+          data[2] = body["items"][length-3]["track"]["album"]["images"][0]["url"];         
         }
         data[3] = body["items"][length-3]["added_by"]["id"] ? body["items"][length-3]["added_by"]["id"] : "";
         allTracks.push({

@@ -122,6 +122,7 @@ app.controller('post',function ($scope,$http) {
                 data[i]["user"] = "Someone";
             }
         }
+        console.log(data);
         return data;
     }
 
@@ -176,17 +177,13 @@ app.controller('post',function ($scope,$http) {
 
 //for comment part
 app.controller('comment', function($scope,$http) {
-    var req = {
-        method: 'POST',
-        url: '/user',
-        data: {test_access: access_token}
-    };
-    $http(req).then(function(data){
-        data = data["data"];
-        $scope.nickname=data["display_name"];
-    }, function(data){
-        console.log("fail call user");
-    });
+    
+    // $http(req).then(function(data){
+    //     data = data["data"];
+    //     $scope.nickname=data["display_name"];
+    // }, function(data){
+    //     console.log("fail call user");
+    // });
     //init vars
     $scope.currentplaylist="all playlists";
     $scope.user="test";
@@ -196,7 +193,7 @@ app.controller('comment', function($scope,$http) {
     $scope.submit = function() {
         var req = {
             method: 'POST',
-            url: '/comment',
+            url: '/insertComment',
             data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.nickname, }
         };
         if ($scope.text) {
@@ -210,9 +207,20 @@ app.controller('comment', function($scope,$http) {
     //Filter posts to match selected playlist from dropdown
     $('#dropdownPL').on('change', function() { //When new dropdown selected
         if(this.value == "All Playlists"){ //If All Playlists selected
-            $scope.playlisturls = $scope.allPlaylists
+            //don't show comments
         } else { //If specific playlist selected
             $scope.currentplaylist = this.value;
+            var req = {
+                method: 'POST',
+                url: '/pullComment',
+                data: {test_access: access_token, playlist: $scope.currentplaylist}
+            };
+            $http(req).then(function(data){
+                console.log(data);
+            }, function(data){
+                console.log("fail call user");
+            });
+
         }
         $scope.$apply();
     });
