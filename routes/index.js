@@ -120,7 +120,7 @@ router.post('/insertComment',function(req,res){
   console.log(req.body.text);
   console.log(req.body.playlist);
   console.log(req.body.username);
-  var comment = {user: req.body.username, playlist: req.body.playlist, text: req.body.text, time:Date.now()};
+  var comment = {user: req.body.username, playlist: req.body.playlist, text: req.body.text, time:Date()};
   //connection to the database
   MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
     if (!err) {
