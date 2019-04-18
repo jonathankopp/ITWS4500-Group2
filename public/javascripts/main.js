@@ -237,7 +237,6 @@ app.controller('comment', function($scope,$http) {
             };
             $http(req).then(function(data){
                 $scope.comments=data.data;
-                $scope.comments.reverse();
             }, function(data){
                 console.log("fail call pullComment");
             });
