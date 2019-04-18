@@ -83,11 +83,11 @@
 
 
       <div class="container" id="commentContent">
-        <div class="comment" id="spanComment" style="display: none"></div>
         <div class="comment" ng-repeat="obj in comments">
           <p>{{obj.text}}</p>
           <p class="text-right">{{obj.user}}, <i>{{obj.time}}</i></p>
         </div>
+        <div class="comment" id="spanComment" style="display: none"></div>
       </div>
 
     </div>
@@ -95,7 +95,7 @@
       <form ng-submit="submit()">
         <div class="input-group">
           <div class="input-group text-center style">
-            <textarea cols="20" class="form-control" ng-model="text" aria-label="With textarea"></textarea>
+            <textarea cols="20" id="commentTextArea" class="form-control" ng-model="text" aria-label="With textarea">example</textarea>
             <p class="transparent-style">ff</p>
             <input class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit" value="Comment" />
           </div>

@@ -204,11 +204,12 @@ div.scrollmenu a:hover {
 /* width */
 ::-webkit-scrollbar {
   width: 4px;
+  background: 
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: rgba(0, 0, 0, 0);; 
+  background: rgba(0, 0, 0, 0); 
 }
  
 /* Handle */
@@ -219,4 +220,8 @@ div.scrollmenu a:hover {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: rgb(139, 145, 155); 
+}
+
+::-webkit-scrollbar-corner {
+  background: rgba(0, 0, 0, 0); 
 }
