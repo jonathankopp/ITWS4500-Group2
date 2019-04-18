@@ -233,6 +233,7 @@ app.controller('comment', function($scope,$http) {
             //don't show comments
         } else { //If specific playlist selected
             $scope.currentplaylist = this.value;
+            $("#spanComment").hide();
             var req = {
                 method: 'POST',
                 url: '/pullComment',
