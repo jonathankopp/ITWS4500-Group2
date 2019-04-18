@@ -4,7 +4,6 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
 
   <!-- Latest compiled and minified CSS -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,8 +12,8 @@
 <body ng-app="app">
 
 
-<div class="container-fluid navbar-light bg-dark">
-  <nav class="navbar navbar-expand-md navbar-dark">
+<div class="container-fluid navbar-light" id="navbar">
+  <nav class="navbar navbar-expand-sm">
     <a class="brand" href="#">Jukebox</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -48,16 +47,24 @@
 <div class="container-fluid row" id="content">
 
   <div class="col-sm-3" id="user-profile" ng-controller="user">
-    <div class="container">
-      <h4 class="title text-center">Welcome {{nickname}}</h4>
-      <div class="text-center">
-        <img src={{imgUrl}} alt="user image" class="userProfilePicture">
+
+    <div class="outer">
+      <div class="middle">
+        <div class="inner">
+          <div class="container">
+            <h4 class="title text-center">Welcome {{nickname}}</h4>
+            <div class="text-center">
+              <img src={{imgUrl}} alt="user image" class="userProfilePicture">
+            </div>
+            <jumbotron class="title text-center">
+              <p>Country: {{country}}</p>
+              <p><a href="{{spotiy_link}}" style="color: #28a745;font-size: x-large">Open Spotify</a></p>
+            </jumbotron>
+          </div>
+        </div>
       </div>
-      <jumbotron class="title text-center">
-        <p>Country: {{country}}</p>
-        <p><a href="{{spotiy_link}}" style="color: #28a745;font-size: x-large">Open Spotify</a></p>
-      </jumbotron>
     </div>
+
   </div>
 
   <div class="col-sm-5" id="user-playlist" ng-controller="post">
@@ -73,31 +80,37 @@
     </div>
   </div>
 
-  <div class="col-sm-4" id="user-comment" ng-controller="comment">
-    <div class="container text-center" id="commentWelcome">
-      <h1>Select one Playlist on the top to see comments</h1>
+  <div class="col-sm-4"  ng-controller="comment">
+    <div id="commentWelcome">
+      <h1 class="text-center">Select a Playlist on the top to share your thoughts</h1>
     </div>
+    <h4 class="title" id="comment-title"> Comments on {{currentplaylist}}</h4>
 
-    <div class="container" id="commentContent">
-      <h4 class="title"> Comments on {{currentplaylist}}</h4>
-        <div class="comment" id="spanComment" style="display: none"></div>
-        <div class="comment" ng-repeat="obj in comments">
-        <p>{{obj.text}}</p>
-        <p class="text-right">{{obj.user}}, <i>{{obj.time}}</i></p>
-      </div>
-      <div id="comment-submit" class="text-center">
-        <form ng-submit="submit()">
-          <div class="input-group">
-            <div class="input-group text-center style">
-              <textarea cols="20" class="form-control" ng-model="text" aria-label="With textarea"></textarea>
-              <p class="transparent-style">ff</p>
-              <input class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit" value="Comment" />
-            </div>
+    <div id="user-comment">
+
+
+        <div class="container" id="commentContent">
+          <div class="comment" id="spanComment" style="display: none"></div>
+          <div class="comment" ng-repeat="obj in comments">
+            <p>{{obj.text}}</p>
+            <p class="text-right">{{obj.user}}, <i>{{obj.time}}</i></p>
           </div>
-        </form>
-      </div>
+        </div>
+
+    </div>
+    <div id="comment-submit" class="text-center">
+      <form ng-submit="submit()">
+        <div class="input-group">
+          <div class="input-group text-center style">
+            <textarea cols="20" class="form-control" ng-model="text" aria-label="With textarea"></textarea>
+            <p class="transparent-style">ff</p>
+            <input class="btn btn-outline-success my-2 my-sm-0" type="submit" id="submit" value="Comment" />
+          </div>
+        </div>
+      </form>
     </div>
   </div>
+
 
 </div>
 

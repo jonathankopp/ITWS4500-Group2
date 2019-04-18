@@ -7,7 +7,7 @@ a {
 }
 
 #login{
-  padding-top: 16%;
+  padding-top: 20%;
   color: aliceblue;
 }
 
@@ -73,8 +73,13 @@ body{
   z-index: 999;
 
 }
+
+#user-comment{
+  height: 55%;
+  overflow: scroll;
+}
 #user-profile{
-  position: static;
+  height: 80%;
 }
 
 #comment-submit{
@@ -87,17 +92,20 @@ body{
 }
 #content{
   color: azure;
-  padding-top: 30px;
+  padding-top: 75px;
   margin-left: 1%;
 }
 
 #user-playlist{
   border-left: 2px solid #28a745;
   border-right: 2px solid #28a745;
+  overflow: scroll;
+  height: 79%;
 
 }
 .post{
   background-color: rgba(151, 207, 208, 0.56);
+
 }
 .transparent-style{
 
@@ -107,11 +115,45 @@ body{
 #dropdownPL{
   color: white;
   font-size: larger;
-  background-color: #353940;
+  background-color: rgb(106, 113, 208);
   border: 1px solid white;
 }
-.comment{
+.comment {
   background-color: rgba(151, 207, 208, 0.56);
   padding: 3%;
   margin-bottom: 10px;
+}
+#navbar{
+  z-index: 1;
+  position: fixed;
+  background-color: rgb(106, 113, 208);
+}
+
+.outer {
+  display: table;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.middle {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.inner {
+  margin-left: auto;
+  margin-right: auto;
+  width: 100%;
+  /*whatever width you want*/
+}
+
+#commentContent{
+  height: 90%;
+  overflow: scroll;
+}
+@media screen {
+
 }
