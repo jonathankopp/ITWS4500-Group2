@@ -36,12 +36,9 @@ app.controller('dropdown',function ($scope,$http) {
         data: {test_access: access_token}
     };
     $http(req).then(function(data){
-        console.log("Success in the dropdown");
-
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
-        console.log($scope.playlists);
     }, function(data){
         console.log("fail call post");
     });
@@ -96,7 +93,6 @@ app.controller('post',function ($scope,$http) {
                 //Return list of recently added tracks for each playlist
                 $http(attr).then(function(data){
                     data = data["data"];
-                    console.log("success track post");
                     count++;
                     allTracks = allTracks.concat(data); //Concatenate all tracks from all playlists into one array
                     if(count == playlist.length){ //If we are at the last playlist in list, return track array
@@ -124,13 +120,7 @@ app.controller('post',function ($scope,$http) {
                 data[i]["user"] = "Someone";
             }
         }
-        data.sort(custom_sort);
         return data;
-    }
-
-    //Sort tracks by date
-    function custom_sort(a, b) {
-        return new Date(b.timestamp).getTime() - new Date(a.timestamp).getTime();
     }
 
     //use http(req) to get information
@@ -144,6 +134,8 @@ app.controller('post',function ($scope,$http) {
     $http(req).then(function(data){
         //Song/playlist information
         data = data["data"]["items"];
+        // $scope.playlisturls = data; //playlists to be currently displayed
+        // $scope.allPlaylists = data; //all playlists (including those not displayed)
 
         //Get individual track data
         var tracks = [];
@@ -197,6 +189,7 @@ app.controller('comment', function($scope,$http) {
     $scope.user="test";
     $scope.time="2019";
     $scope.text = '';
+    $scope.comments=[];
     //when form is submitted, use $http() to send request to node
     $scope.submit = function() {
         var req = {
@@ -205,10 +198,18 @@ app.controller('comment', function($scope,$http) {
             data: { text: $scope.text, playlist: $scope.currentplaylist, username: $scope.nickname, }
         };
         if ($scope.text) {
-            $http(req).then(function(){
-                console.log("success insertComment");
+            $http(req).then(function(data){
+                if (data.data==="ok"){
+                    var d = new Date();
+                    var cur_time= formatDate(d, "dddd h:mmtt d MMM yyyy");
+                    $("#spanComment").html("<p>"+$scope.text+"</p>\n" +
+                        "<p class=\"text-right\">"+$scope.nickname+", <i>"+
+                        cur_time
+                        +"</i></p>");
+                    $("#spanComment").show();
+                }
             }, function(){
-                console.log("fail insertComment");
+                console.log("fail to insertComment");
             });
         }
     };
@@ -225,8 +226,8 @@ app.controller('comment', function($scope,$http) {
                 data: {test_access: access_token, playlist: $scope.currentplaylist}
             };
             $http(req).then(function(data){
-                console.log("Success pullComment");
-                console.log(data);
+                $scope.comments=data.data;
+                $scope.comments.reverse();
             }, function(data){
                 console.log("fail call pullComment");
             });

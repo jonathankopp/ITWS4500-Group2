@@ -4,6 +4,8 @@
   <link rel="stylesheet" href="/stylesheets/style.css">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/datejs/1.0/date.min.js"></script>
+
   <!-- Latest compiled and minified CSS -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
@@ -72,16 +74,16 @@
   </div>
 
   <div class="col-sm-4" id="user-comment" ng-controller="comment">
-    <div class="container" id="commentWelcome">
+    <div class="container text-center" id="commentWelcome">
       <h1>Select one Playlist on the top to see comments</h1>
     </div>
 
-
     <div class="container" id="commentContent">
       <h4 class="title"> Comments on {{currentplaylist}}</h4>
-      <div class="comment">
-        <p>i like this song</p>
-        <p class="text-right">By user {{user}}, <i>{{time}}</i></p>
+        <div class="comment" id="spanComment" style="display: none"></div>
+        <div class="comment" ng-repeat="obj in comments">
+        <p>{{obj.text}}</p>
+        <p class="text-right">{{obj.user}}, <i>{{obj.time}}</i></p>
       </div>
       <div id="comment-submit" class="text-center">
         <form ng-submit="submit()">

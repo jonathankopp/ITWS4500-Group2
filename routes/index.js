@@ -4,6 +4,7 @@ var router = express.Router();
 var querystring = require('querystring');
 var request = require('request'); // "Request" library
 var MongoClient = require('mongodb').MongoClient; //mongodb needed lib
+let date = require('date-and-time');
 const uri = "mongodb+srv://koppej:Mets2014@test1-5846w.mongodb.net/test?retryWrites=true"; //link for database connection
 
 /* GET home page. */
@@ -117,15 +118,14 @@ router.post('/tracks', function(req, res){
 //backend comment dev goes here, should return data to frontend
 router.post('/insertComment',function(req,res){
 // req.body.test  is the comment message
-  console.log(req.body.text);
-  console.log(req.body.playlist);
-  console.log(req.body.username);
-  var comment = {user: req.body.username, playlist: req.body.playlist, text: req.body.text, time:Date()};
+  let now = new Date();
+  //date.format(now, 'YYYY/MM/DD HH:mm:ss') => '2015/01/02 23:14:05'
+  var comment = {user: req.body.username, playlist: req.body.playlist, text: req.body.text, time:date.format(now, 'YYYY/MM/DD HH:mm:ss')};
   //connection to the database
   MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
     if (!err) {
       empty = false;
-      console.log("We are connected");
+      console.log("We are connected for insert");
       const collection = client.db("Jukebox").collection("comments");
       //inserting the recently collected comment
       collection.insertOne(comment, function(err, res){
@@ -134,7 +134,6 @@ router.post('/insertComment',function(req,res){
       });
       res.send("ok");
       //closing out the connection
-      
     }else{
       console.log(err);
     }
@@ -148,7 +147,7 @@ router.post('/pullComment',function(req,res){
   MongoClient.connect(uri,{ useNewUrlParser: true }, function(err, client) {
     if (!err) {
       empty = false;
-      console.log("We are connected");
+      console.log("We are connected for pulling data");
       const collection = client.db("Jukebox").collection("comments");
       //inserting the recently collected comment
       var found = collection.find({"playlist": req.body.playlist}).sort({"time":1});
