@@ -208,6 +208,10 @@ app.controller('comment', function($scope,$http) {
         if ($scope.text) {
             $http(req).then(function(data){
                 if (data.data==="ok"){
+                    //Clear text area
+                    document.getElementById('commentTextArea').value = "";
+
+                    //Append comment to end of comments list
                     let d=new Date();
 
                     $("#spanComment").html("<p>"+$scope.text+"</p>\n" +
@@ -228,7 +232,6 @@ app.controller('comment', function($scope,$http) {
         if(this.value == "All Playlists"){ //If All Playlists selected
             //don't show comments
         } else { //If specific playlist selected
-            console.log("dropdownchange: "+this.value);
             $scope.currentplaylist = this.value;
             var req = {
                 method: 'POST',
@@ -247,6 +250,7 @@ app.controller('comment', function($scope,$http) {
 });
 
 
+//Format date for comments display
 function formatDate(date, format, utc) {
     var MMMM = ["\x00", "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
     var MMM = ["\x01", "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
