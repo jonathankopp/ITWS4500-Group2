@@ -1,6 +1,5 @@
 //frontend development goes here
 var app = angular.module('app', []);
-
 $("#content").hide();
 $("#dropdown").hide();
 $("#commentContent").hide();
@@ -8,6 +7,7 @@ $("#comment-submit").hide();
 $("#comment-title").hide();
 $("#logout").hide();
 
+//for Spotify login
 var params = getHashParams();
 var access_token = params.access_token,
     refresh_token = params.refresh_token,
@@ -21,13 +21,14 @@ function getHashParams() {
     }
     return hashParams;
 }
+
+//initialize the page
 if (access_token) {
     $("#login").hide();
     $("#content").show();
     $("#dropdown").show();
     $("#logout").show();
 }
-
 
 //for dropdown part
 app.controller('dropdown',function ($scope,$http) {
@@ -37,13 +38,17 @@ app.controller('dropdown',function ($scope,$http) {
         url: '/post',
         data: {test_access: access_token}
     };
+    //successful callback
     $http(req).then(function(data){
         //Song/playlist information
         data = data["data"]["items"];
         $scope.playlists = data;
-    }, function(data){
-        console.log("fail call post");
+    },
+    //error callback
+    function(){
+        console.log("fail to get all playlists");
     });
+
 
 
 });
@@ -58,22 +63,22 @@ app.controller('user',function ($scope,$http) {
         data: {test_access: access_token}
     };
 
-    $http(req).then(function(data){
+    $http(req)
+        //successful callback
+        .then(function(data){
         data = data["data"];
         $scope.nickname=data["display_name"];
         $scope.imgUrl=data["images"][0]["url"];
         $scope.country=data["country"];
         $scope.spotiy_link=data["external_urls"]["spotify"];
         cur_user=data["display_name"];
-    }, function(data){
-        console.log("fail call user");
+    },
+    //fail callback
+    function(data){
+        console.log("fail to get user profile information");
     });
-
-
-
 });
 
-//for user_post part
 //Song playlist
 app.controller('post',function ($scope,$http) {
 
@@ -105,13 +110,13 @@ app.controller('post',function ($scope,$http) {
                 });
             }
         });
-    }
+    };
 
     //Wait til post request/API call finished, & all tracks put in array
     var callMyPromise = async (data) => {
         var result = await ($scope.myPromise(data));
         return result;
-    }
+    };
 
     $scope.organize = function (data){
         for (var i = data.length - 1; i >= 0; i--) {
@@ -123,7 +128,7 @@ app.controller('post',function ($scope,$http) {
             }
         }
         return data;
-    }
+    };
 
     //use http(req) to get information
     var req = {
@@ -160,7 +165,7 @@ app.controller('post',function ($scope,$http) {
         $('#comment-submit').show();
         $('#comment-title').show();
       if(this.value == "All Playlists"){ //If All Playlists selected
-        $scope.playlisturls = $scope.allPlaylists
+        $scope.playlisturls = $scope.allPlaylists;
           $('#commentWelcome').show();
           $('#commentContent').hide();
           $('#comment-submit').hide();
@@ -176,7 +181,6 @@ app.controller('post',function ($scope,$http) {
       }
       $scope.$apply();
     });
-
 });
 
 //for comment part

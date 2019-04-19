@@ -5,9 +5,12 @@ var querystring = require('querystring');
 var request = require('request'); // "Request" library
 var MongoClient = require('mongodb').MongoClient; //mongodb needed lib
 let date = require('date-and-time');
-const uri = "mongodb+srv://koppej:Mets2014@test1-5846w.mongodb.net/test?retryWrites=true"; //link for database connection
+require('dotenv').config();
+var client_id=process.env.client_id;
+var client_secret=process.env.client_secret;
+var mongodb=process.env.mongo;
+const uri = "mongodb+srv://"+mongodb+"@test1-5846w.mongodb.net/test?retryWrites=true"; //link for database connection
 
-/* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Log in' });
 });
@@ -167,10 +170,6 @@ router.post('/pullComment',function(req,res){
 
 //
 
-
-
-var client_id = '1d919a5a30ef4be69dd04141c730e3a9'; // Your client id
-var client_secret = 'a2c8d9a1fe2b44e6a0d6012c2e0a9222'; // Your secret
 var redirect_uri = 'http://localhost:3000/callback'; // Your redirect uri
 var stateKey = 'spotify_auth_state';
 

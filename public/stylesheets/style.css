@@ -93,7 +93,7 @@ body{
 #content{
   color: azure;
   padding-top: 75px;
-  margin-left: 1%;
+  padding-left: 1%;
 }
 
 #user-playlist{
@@ -101,7 +101,6 @@ body{
   border-right: 2px solid #28a745;
   overflow: scroll;
   height: 79%;
-
 }
 .post{
   background-color: rgba(151, 207, 208, 0.56);
@@ -182,6 +181,9 @@ body{
   #footer{
   display: none;
   }
+  #content{
+    margin-left: 1%;
+  }
 }
 div.scrollmenu {
   background-color: #333;
@@ -204,7 +206,6 @@ div.scrollmenu a:hover {
 /* width */
 ::-webkit-scrollbar {
   width: 4px;
-  background: 
 }
 
 /* Track */
