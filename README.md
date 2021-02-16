@@ -49,7 +49,7 @@ Open your browser, go to http://localhost:3000
 
 
 #### Group Members:
-- Trulee Hersh
-- Honghao Li
-- Alston Chau
-- Jonathan Koppelman
+- Trulee Hersh (https://github.com/hersht)
+- Honghao Li (https://github.com/hangyenli)
+- Alston Chau (https://github.com/Achau9)
+- Jonathan Koppelman 
